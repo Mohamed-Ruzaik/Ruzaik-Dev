@@ -902,7 +902,7 @@ function ContactPage() {
         </p>
         <div className="mt-8 flex flex-wrap items-stretch justify-center gap-3">
           <a
-            href="mailto:your-email@example.com"
+            href="mailto:mohamedruzaik9@gmail.com"
             className={`${contactButtonBase} border border-white/10 bg-white text-black hover:bg-zinc-200 [&_svg]:text-black`}
           >
             <Icon name="mail" className="h-4 w-4" /> Email Me
