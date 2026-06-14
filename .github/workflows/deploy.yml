@@ -34,6 +34,11 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Configure Pages files
+        run: |
+          cp dist/index.html dist/404.html
+          echo "mohamedruzaik.com" > dist/CNAME
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
