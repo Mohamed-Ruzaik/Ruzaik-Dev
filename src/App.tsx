@@ -1038,8 +1038,11 @@ function HomePage({ setActivePage }: { setActivePage: (page: PageName) => void }
     <Page>
       <div className="flex min-h-[68vh] items-center">
         <div className="max-w-3xl pl-5 md:pl-10 lg:pl-16 xl:pl-20">
+          <p className="section-eyebrow mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Software Developer Portfolio
+          </p>
           <h1 style={{ fontFamily: headingFont }} className="max-w-3xl text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl">
-            Building useful <span className="hero-gradient-text bg-gradient-to-r from-white via-cyan-100 to-violet-200 bg-clip-text text-transparent">software systems.</span>
+            I build software that solves <span className="hero-gradient-text bg-gradient-to-r from-white via-cyan-100 to-violet-200 bg-clip-text text-transparent">real problems.</span>
           </h1>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400">
@@ -1563,6 +1566,24 @@ function ContactPage() {
   );
 }
 
+function SiteFooter() {
+  return (
+    <footer className="page-shell mx-auto w-full px-4 pb-8 sm:px-5">
+      <div className={`flex flex-col gap-4 rounded-[1.5rem] px-5 py-5 sm:flex-row sm:items-center sm:justify-between ${projectGlassSoft}`}>
+        <div>
+          <p className="text-sm font-black text-white">© 2026 Mohamed Ruzaik</p>
+          <p className="mt-1 text-xs font-semibold text-zinc-500">Software Developer Portfolio</p>
+        </div>
+        <div className="flex flex-wrap gap-3 text-xs font-bold text-zinc-400">
+          <a href={githubUrl} target="_blank" rel="noreferrer" className="transition hover:text-cyan-300">GitHub</a>
+          <a href={linkedinUrl} target="_blank" rel="noreferrer" className="transition hover:text-cyan-300">LinkedIn</a>
+          <a href="mailto:contact@mohamedruzaik.com" className="transition hover:text-cyan-300">Email</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export default function App() {
   const [view, setView] = useState<ViewState>(() => parseViewFromLocation());
   const [theme, setTheme] = useState<ThemeMode>("dark");
@@ -1702,6 +1723,7 @@ export default function App() {
           <div key={view.projectSlug || activePage}>{renderPage()}</div>
         </AnimatePresence>
       </div>
+      <SiteFooter />
     </main>
   );
 }
