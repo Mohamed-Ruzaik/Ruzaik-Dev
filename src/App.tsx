@@ -52,8 +52,8 @@ const hiddenScrollbar =
 
 const whatsappNumber = "94762334979";
 const githubUrl = "https://github.com/Mohamed-Ruzaik";
+const linkedinUrl = "https://www.linkedin.com/in/mohamedruzaik/";
 const cvUrl = "/Mohamed-Ruzaik-CV.pdf";
-
 const bodyFont =
   "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const headingFont =
@@ -341,10 +341,8 @@ const skillGroups = [
       "System Design",
       "Problem Solving",
       "Debugging",
-      "Architecture Planning",
       "API Design",
       "Database Design",
-      "Requirements Analysis",
       "Technical Documentation",
     ],
   },
@@ -358,39 +356,39 @@ const skillGroups = [
       "Rapid Prototyping",
       "UI/UX Thinking",
       "Workflow Design",
-      "Developer Tools",
-      "Desktop App Development",
-      "Web Application Development",
-      "Mobile Application Development",
-      "Developer Tool Development",
       "AI Integration",
     ],
   },
   {
-    title: "Hardware",
-    icon: "telescope",
+    title: "Software Development",
+    icon: "terminal",
     items: [
-      "Hardware",
-      "Electronics Prototyping",
-      "Optical Systems",
-      "Hardware Troubleshooting",
-      "Mechanical Assembly",
+      "Web Application Development",
+      "Desktop App Development",
+      "Mobile App Development",
+      "Developer Tool Development",
+      "Game Development",
     ],
   },
   {
-    title: "Creative",
-    icon: "layers",
-    items: ["Digital Design", "UI Design", "Painting", "Visual Communication"],
+    title: "Hardware & Creative",
+    icon: "telescope",
+    items: [
+      "Hardware Prototyping",
+      "Optical Systems",
+      "Digital Design",
+      "UI Design",
+      "Visual Communication",
+    ],
   },
   {
-    title: "Soft Skills",
+    title: "Personal Strengths",
     icon: "zap",
     items: [
       "Self Learning",
-      "Research",
-      "Adaptability",
       "Curiosity",
       "Persistence",
+      "Adaptability",
       "Independent Problem Solving",
     ],
   },
@@ -415,17 +413,17 @@ const techGroups = [
   {
     title: "Mobile",
     icon: "briefcase",
-    items: ["Flutter", "React Native"],
+    items: ["Flutter", "React Native", "Android / Kotlin"],
   },
   {
     title: "Game Development",
     icon: "game",
-    items: ["Unity", "Unreal Engine"],
+    items: ["Unity", "C#", "Unreal Engine"],
   },
   {
     title: "Hardware",
     icon: "telescope",
-    items: ["Optics"],
+    items: ["Optics", "Electronics"],
   },
 ] as const;
 
@@ -435,7 +433,15 @@ const quickStats = [
   { label: "Base", value: "Sri Lanka" },
 ] as const;
 
-type IconName = keyof typeof iconFactories;
+type IconName = keyof ReturnType<typeof iconFactories>;
+
+const pageIcons: Record<PageName, IconName> = {
+  Home: "home",
+  Projects: "briefcase",
+  Skills: "code",
+  About: "user",
+  Contact: "mail",
+};
 
 function Icon({ name, className = "h-5 w-5" }: { name: IconName | string; className?: string }) {
   const common = {
@@ -454,6 +460,19 @@ function Icon({ name, className = "h-5 w-5" }: { name: IconName | string; classN
 }
 
 const iconFactories = (common: Record<string, unknown>) => ({
+  home: (
+    <svg {...common}>
+      <path d="m3 11 9-8 9 8" />
+      <path d="M5 10v10h14V10" />
+      <path d="M9 20v-6h6v6" />
+    </svg>
+  ),
+  user: (
+    <svg {...common}>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21c1.7-4 4.4-6 8-6s6.3 2 8 6" />
+    </svg>
+  ),
   arrow: (
     <svg {...common}>
       <path d="M7 7h10v10" />
@@ -464,6 +483,13 @@ const iconFactories = (common: Record<string, unknown>) => ({
     <svg {...common}>
       <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
       <path d="M9 18c-4.5 2-5-2-7-2" />
+    </svg>
+  ),
+  linkedin: (
+    <svg {...common}>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
     </svg>
   ),
   mail: (
@@ -871,12 +897,24 @@ function StackIcon({ name }: { name: string }) {
     return <Icon name="game" className={`${baseClass} text-violet-300`} />;
   }
 
+  if (normalized === "c#") {
+    return <Icon name="hexagon" className={`${baseClass} text-violet-300`} />;
+  }
+
   if (normalized === "visual basic") {
     return <Icon name="window" className={`${baseClass} text-indigo-300`} />;
   }
 
+  if (normalized === "android / kotlin") {
+    return <Icon name="smartphone" className={`${baseClass} text-green-300`} />;
+  }
+
   if (normalized === "optics") {
     return <Icon name="telescope" className={`${baseClass} text-amber-300`} />;
+  }
+
+  if (normalized === "electronics") {
+    return <Icon name="settings" className={`${baseClass} text-cyan-300`} />;
   }
 
   if (normalized === "ai" || normalized.includes("ai ")) {
@@ -979,7 +1017,7 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
           className="inline-flex w-full min-w-[118px] items-center justify-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-black !text-black transition hover:bg-zinc-200 sm:w-auto [&_svg]:!text-black"
         >
           <Icon name="briefcase" className="h-3.5 w-3.5" />
-          Case Study
+          View Project
         </button>
         <a
           href={project.liveDemoUrl || "#"}
@@ -1005,7 +1043,7 @@ function HomePage({ setActivePage }: { setActivePage: (page: PageName) => void }
           </h1>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400">
-            I’m Mohamed Ruzaik - a Sri Lankan builder working on AI tools, desktop apps, health-tech systems, game projects, developer utilities, and hardware concepts.
+            I’m Mohamed Ruzaik - a software developer focused on developer tools, AI applications, desktop software, and practical systems.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
@@ -1042,8 +1080,8 @@ function ProjectsPage({ onOpenProject }: { onOpenProject: (slug: string) => void
     <Page>
       <SectionTitle
         eyebrow="Selected Work"
-        title="Focused Project Case Study"
-        text="One focused build for now. This project can open into its own full case-study page."
+        title="Featured Build"
+        text="A closer look at one active project for now. More projects will be added as they are cleaned up and documented."
       />
 
       <div className={`mb-6 rounded-[1.5rem] p-2 sm:mb-8 sm:rounded-[1.75rem] sm:p-3 ${projectGlass}`}>
@@ -1226,10 +1264,9 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
 
 function SkillsPage() {
   const proofItems = [
-    "Can move from idea to prototype quickly.",
-    "Has experience across AI tools, desktop software, health systems, game development, hardware concepts, and product design.",
-    "Understands product flows, not only code files.",
-    "Builds with modern tools and can explain architecture clearly.",
+    "This portfolio shows range, not just isolated code samples.",
+    "It shows that I can move from an idea to a working prototype, design product flows, work across different platforms, and explain how a system is built.",
+    "I work across AI tools, desktop software, health systems, game projects, hardware concepts, and product design.",
   ];
 
   return (
@@ -1237,7 +1274,7 @@ function SkillsPage() {
       <SectionTitle
         eyebrow="Capability"
         title="Skills & Tools"
-        text="A practical mix of engineering, product thinking, developer tooling, hardware work, creative design, and self-driven problem solving."
+        text="A practical mix of software engineering, product thinking, developer tooling, creative design, and hands-on experimentation."
       />
 
       <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
@@ -1309,7 +1346,7 @@ function SkillsPage() {
               Why this portfolio matters
             </p>
             <h2 style={{ fontFamily: headingFont }} className="mt-4 text-3xl font-black text-white md:text-5xl">
-              This is proof of range.
+              This portfolio shows range.
             </h2>
           </div>
           <div className="space-y-4 text-sm leading-7 text-zinc-300">
@@ -1354,9 +1391,10 @@ function AboutPage() {
             <h2 style={{ fontFamily: headingFont }} className="mt-4 text-3xl font-black text-white md:text-5xl">
               Mohamed Ruzaik
             </h2>
-            <p className="mt-5 text-base leading-8 text-zinc-400">
-              I’m a software engineering student from Sri Lanka who likes turning rough product ideas into working software. My current focus is AI tools, desktop apps, full-stack systems, and practical projects that can grow beyond a demo screen.
-            </p>
+            <div className="mt-5 space-y-4 text-base leading-8 text-zinc-400">
+              <p>I enjoy turning rough ideas into working software.</p>
+              <p>My current focus is developer tools, AI-assisted applications, desktop software, and systems that solve practical problems.</p>
+            </div>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={cvUrl}
@@ -1403,7 +1441,9 @@ function AboutPage() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3 border-t border-white/10 pt-8">
+        <div className="mt-8 border-t border-white/10 pt-8">
+          <p className="section-eyebrow mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Contact</p>
+          <div className="flex flex-wrap gap-3">
           <a href="mailto:contact@mohamedruzaik.com" className={`${contactButtonBase} border border-white/10 bg-white/[0.04] text-zinc-200 hover:bg-white/[0.08]`}>
             <Icon name="mail" className="h-4 w-4" /> Email
           </a>
@@ -1415,6 +1455,15 @@ function AboutPage() {
           >
             <Icon name="whatsapp" className="h-4 w-4" /> WhatsApp
           </a>
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={`${contactButtonBase} border border-sky-300/20 bg-sky-300/[0.08] text-sky-100 hover:bg-sky-300/[0.14]`}
+          >
+            <Icon name="linkedin" className="h-4 w-4" /> LinkedIn
+          </a>
+          </div>
         </div>
       </div>
     </Page>
@@ -1446,6 +1495,13 @@ function ContactPage() {
       href: githubUrl,
       icon: "github",
       className: "border-cyan-300/20 bg-cyan-300/[0.08] text-cyan-100 hover:bg-cyan-300/[0.14]",
+    },
+    {
+      label: "LinkedIn",
+      value: "mohamedruzaik",
+      href: linkedinUrl,
+      icon: "linkedin",
+      className: "border-sky-300/20 bg-sky-300/[0.08] text-sky-100 hover:bg-sky-300/[0.14]",
     },
   ] as const;
 
@@ -1578,45 +1634,49 @@ export default function App() {
       <AnimatedBackground />
 
       <nav className={`fixed left-0 right-0 top-0 z-50 ${navGlass}`}>
-        <div className="nav-shell mx-auto flex w-full items-center justify-between gap-3 px-3 py-2.5 sm:gap-5 sm:px-6">
+        <div className="nav-shell mx-auto flex w-full items-center justify-between gap-2 px-2 py-2.5 sm:gap-5 sm:px-6">
           <button
             type="button"
             onClick={() => setActivePage("Home")}
-            className="flex shrink-0 items-center gap-2 text-left"
+            className="flex shrink-0 items-center gap-1.5 text-left sm:gap-2"
           >
-            <span className="text-lg font-black leading-none text-white/90">›_</span>
-            <span style={{ fontFamily: headingFont }} className="text-base font-black tracking-tight text-white sm:text-lg">
+            <span className="text-base font-black leading-none text-white/90 sm:text-lg">›_</span>
+            <span style={{ fontFamily: headingFont }} className="text-sm font-black tracking-tight text-white sm:text-lg">
               Ruzaik<span className="text-cyan-300">.Dev</span>
             </span>
           </button>
 
-          <div className="flex items-center gap-3">
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-3">
             <div className={`hidden items-center gap-1 md:flex ${navPanel}`}>
               {pages.map((page) => (
                 <button
                   key={page}
                   type="button"
                   onClick={() => setActivePage(page)}
-                  className={`${navItemBase} ${
+                  className={`inline-flex items-center gap-2 ${navItemBase} ${
                     activePage === page && !view.projectSlug ? navItemActive : navItemIdle
                   }`}
                 >
+                  <Icon name={pageIcons[page]} className="h-3.5 w-3.5" />
                   {page}
                 </button>
               ))}
             </div>
 
-            <div className={`flex max-w-[calc(100vw-150px)] items-center gap-1 overflow-x-auto md:hidden ${navPanel} ${hiddenScrollbar}`}>
+            <div className={`flex w-auto max-w-[calc(100vw-148px)] shrink-0 items-center gap-1 overflow-x-auto md:hidden ${navPanel} ${hiddenScrollbar}`}>
               {pages.map((page) => (
                 <button
                   key={page}
                   type="button"
                   onClick={() => setActivePage(page)}
-                  className={`shrink-0 rounded-full px-3.5 py-2 text-xs font-bold transition-all duration-300 ${
+                  aria-label={page}
+                  title={page}
+                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full text-xs font-bold transition-all duration-300 ${
                     activePage === page && !view.projectSlug ? navItemActive : navItemIdle
                   }`}
                 >
-                  {page}
+                  <Icon name={pageIcons[page]} className="h-4 w-4" />
+                  <span className="sr-only">{page}</span>
                 </button>
               ))}
             </div>

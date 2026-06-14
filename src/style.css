@@ -238,6 +238,12 @@ body,
   color: #07769f !important;
 }
 
+.theme-light .text-sky-300,
+.theme-light .text-sky-200,
+.theme-light .text-sky-100 {
+  color: #0369a1 !important;
+}
+
 .theme-light .text-emerald-300,
 .theme-light .text-emerald-200 {
   color: #059669 !important;
