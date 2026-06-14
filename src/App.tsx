@@ -18,8 +18,10 @@ type Project = {
   scale: string;
   highlight: string;
   whatItIs?: string;
+  myRole?: string;
   features?: readonly string[];
   screenshots?: readonly string[];
+  teamContribution?: string;
   learned?: readonly string[];
   liveDemoUrl?: string;
   githubUrl?: string;
@@ -69,6 +71,7 @@ const accentPalette = {
   "Design Concept": "text-fuchsia-300 border-fuchsia-300/20 bg-fuchsia-300/[0.055]",
   "Business Systems": "text-lime-300 border-lime-300/20 bg-lime-300/[0.055]",
   "Browser Concept": "text-indigo-300 border-indigo-300/20 bg-indigo-300/[0.055]",
+  "Personal Utility": "text-teal-300 border-teal-300/20 bg-teal-300/[0.055]",
 } as const;
 
 const softProjectGlow = {
@@ -81,6 +84,7 @@ const softProjectGlow = {
   "Design Concept": "rgba(232,121,249,0.045)",
   "Business Systems": "rgba(190,242,100,0.045)",
   "Browser Concept": "rgba(129,140,248,0.045)",
+  "Personal Utility": "rgba(45,212,191,0.045)",
 } as const;
 
 const projects: readonly Project[] = [
@@ -93,11 +97,47 @@ const projects: readonly Project[] = [
       "Hybrid design tool combining Canva, Draw.io, PlantUML, and AI-assisted editing.",
     description:
       "A desktop-first creative system for generating diagrams, covers, slides, SVG layouts, project assets, and document visuals with AI-assisted editing workflows.",
-    stack: ["Electron", "React", "Supabase", "PlantUML", "AI", "SVG"],
+    stack: [
+      "Electron",
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Supabase",
+      "Gemini",
+      "Monaco",
+      "PDF tools",
+      "PPTX generation",
+      "SVG/export tooling",
+    ],
     icon: "layers",
     category: "AI Tools",
     scale: "Signature Build",
     highlight: "Design automation + visual editor ecosystem",
+    whatItIs:
+      "PixelForge Studio is an Electron desktop app for creative production and export. It is shaped like a hybrid design workspace: part visual editor, part document asset generator, part diagram tool, and part AI-assisted creative assistant. The project focuses on turning ideas into usable files, not only previews.",
+    features: [
+      "Windows desktop app with installer and portable build direction.",
+      "Supabase login and Google OAuth flow.",
+      "Local project storage and local version history.",
+      "Gemini assistant through a secure main-process proxy.",
+      "Multi-format export pipeline: PNG, JPEG, PDF, ICO, and PPTX.",
+      "Project samples, SVG testing, icon generation, and performance stress scripts.",
+      "Desktop packaging metadata, app icon, and release output setup.",
+    ],
+    screenshots: [
+      "Dashboard",
+      "Editor workspace",
+      "AI assistant panel",
+      "Export interface",
+      "Project history",
+      "Login/auth flow",
+    ],
+    learned: [
+      "Creative tools live or die by export quality.",
+      "AI is most useful when it helps produce usable assets, not just suggestions.",
+      "Electron apps need careful separation between renderer UI, secure main-process services, and local file behavior.",
+      "Packaging, icons, installer flow, and portable builds are part of the product experience.",
+    ],
   },
   {
     title: "Volt IDE",
@@ -124,62 +164,223 @@ const projects: readonly Project[] = [
     scale: "Core System",
     highlight: "Real developer workspace, not just an editor screen",
     whatItIs:
-      "Volt IDE is a Tauri + React based IDE monorepo. It is built like a real developer workspace, with a shared IDE shell, file explorer, editor area, command palette, source control panel, terminal panel, and task runner direction.",
+      "Volt IDE is a desktop code editor direction built around a serious developer workflow: workspace navigation, file editing, command execution, terminal output, source control, and task running. It is not just an editor-looking UI; it is structured like a real IDE shell where the editor, terminal, project tree, command palette, and output panels work together.",
     features: [
       "Project workspace navigation with desktop-app thinking.",
       "Monaco editor tabs, split editor direction, dirty state, autosave, and persisted sessions.",
       "Command palette and quick-open workflow.",
       "Global search with grouped results and click-to-jump behavior.",
       "Desktop source control panel with status, stage/unstage, diff, commit, and Git command direction.",
-      "Integrated terminal/task runner that can detect package.json scripts and run commands.",
+      "Integrated terminal/task runner direction for real developer work.",
+      "Output panel history and task execution flow.",
     ],
     screenshots: [
       "Workspace shell",
       "Explorer tree",
       "Editor tabs",
+      "Command palette",
       "Source control panel",
       "Terminal output",
       "Task runner",
       "Problems/output panels",
     ],
     learned: [
-      "Developer tools need reliability before visual polish.",
-      "A real IDE is not just an editor screen; it is the loop between files, terminal, tasks, source control, and feedback.",
-      "Tauri/Rust boundaries force cleaner thinking about what belongs in the frontend and what belongs in the host layer.",
-      "AI features become useful only when they connect to real workflow state, commands, output, and iteration.",
+      "Developer tools need boring reliability before fancy UI.",
+      "The hard part is not making an editor screen; it is making the loop feel fast and trustworthy.",
+      "Tauri/Rust architecture forces better thinking about desktop boundaries.",
+      "AI features are only useful when they connect to the actual workflow: files, commands, output, and iteration.",
     ],
     liveDemoUrl: "#",
     githubUrl: "https://github.com/Mohamed-Ruzaik",
   },
   {
-    title: "Neurofit / Calforge",
-    slug: "neurofit-calforge",
+    title: "NeuroFit",
+    slug: "neurofit",
     type: "AI Fitness Coach",
     status: "50% Built",
     impact:
-      "Mobile + desktop companion that routes user prompts through a local AI-powered Windows client.",
+      "Cross-device health and fitness companion direction with daily tracking and AI coaching.",
     description:
-      "A personal fitness and health logging system for food, water, medicine, workouts, reminders, and AI coaching synced through Supabase.",
-    stack: ["Mobile", "Desktop", "Supabase", "Codex CLI", "Gemini", "AI Coach"],
+      "A personal fitness and health logging system for food, water, medicine, workouts, reminders, reports, and AI coaching synced through Supabase.",
+    stack: [
+      "Mobile app architecture",
+      "React Native direction",
+      "TypeScript",
+      "Supabase",
+      "AI coach direction",
+      "Shared app logic",
+      "Health tracking workflows",
+    ],
     icon: "dumbbell",
     category: "Health Tech",
     scale: "Major System",
-    highlight: "Cross-device AI agent architecture",
+    highlight: "Daily health tracking with AI coaching direction",
+    whatItIs:
+      "NeuroFit is a cross-device health and fitness companion. The mobile side contains onboarding, auth, AI log, reporting, home, and settings flows. The project is designed around daily health tracking and an AI coach that can help users understand habits, logs, and progress.",
+    features: [
+      "Mobile onboarding flow.",
+      "Sign-in/auth direction.",
+      "AI log screen for health and fitness entries.",
+      "Report screen for reviewing progress.",
+      "Settings and account-related flows.",
+      "Supabase-backed sync direction.",
+      "Future desktop companion structure.",
+      "Health logging direction for meals, water, medicine, workouts, reminders, and coaching.",
+    ],
+    screenshots: ["Onboarding", "Sign-in", "Home dashboard", "AI log", "Reports", "Settings"],
+    learned: [
+      "Health apps need consistency because users return daily.",
+      "AI coaching only works well when the app has clean logs and useful context.",
+      "Cross-device apps need shared structure early so the product does not split into separate disconnected experiences.",
+      "The difficult part is making the app feel helpful without becoming noisy or overwhelming.",
+    ],
   },
   {
-    title: "Mediconnect",
-    slug: "mediconnect",
-    type: "Hospital Digitization System",
-    status: "Prototype / University Project",
+    title: "Wallet",
+    slug: "wallet",
+    type: "Wallet, Catalog, Subscription, and Admin Platform",
+    status: "Functional App Direction",
     impact:
-      "Digital workflow concept for hospitals, pharmacies, appointments, billing, doctors, and admin operations.",
+      "Customer-facing wallet flows and admin management panels for business operations.",
     description:
-      "A healthcare management system concept designed to modernize hospital workflows with structured database design and admin dashboards.",
-    stack: ["React", "FastAPI", "Supabase", "SQL", "Admin Dashboard"],
+      "A React/Supabase business platform with user-facing wallet flows and admin management panels.",
+    stack: ["React", "Vite", "TypeScript", "Supabase", "React Router", "Tailwind", "Lucide icons"],
+    icon: "wallet",
+    category: "Business Systems",
+    scale: "Business Systems",
+    highlight: "Wallet, catalog, subscription, and admin operations platform",
+    whatItIs:
+      "Wallet is a web platform for managing users, products, projects, subscriptions, orders, topups, wallets, and access control. It has both customer-facing routes and admin-only routes, making it closer to a small SaaS/business operations system than a simple wallet page.",
+    features: [
+      "Public home, catalog, projects, and subscriptions pages.",
+      "Login and register pages.",
+      "Protected wallet, topups, and account routes.",
+      "Admin route guard.",
+      "Admin overview dashboard.",
+      "Admin pages for users, products, projects, wallets, subscriptions, access, orders, topups, and logs.",
+      "Reusable UI components like buttons, cards, modals, tables, badges, inputs, selects, and textareas.",
+    ],
+    screenshots: [
+      "Home page",
+      "Catalog",
+      "Wallet page",
+      "Topups",
+      "Subscriptions",
+      "Admin overview",
+      "Admin data tables",
+      "Login/register",
+    ],
+    learned: [
+      "Business systems need clear route protection and role separation.",
+      "Admin panels quickly become the real product because they control users, orders, logs, access, and money-related flows.",
+      "Reusable components make CRUD-heavy interfaces easier to maintain.",
+      "The challenge is keeping the interface simple while still covering many operational needs.",
+    ],
+  },
+  {
+    title: "HomePage",
+    slug: "homepage",
+    type: "Custom Browser Start Page",
+    status: "Static Web App",
+    impact:
+      "A personal browser start page for daily shortcuts, search, time, weather, and focus.",
+    description:
+      "A custom personal browser start page for daily shortcuts, search, time, weather, and focus.",
+    stack: ["HTML", "CSS", "JavaScript", "Static hosting", "GitHub Actions"],
+    icon: "home",
+    category: "Personal Utility",
+    scale: "Personal Utility",
+    highlight: "Fast daily dashboard for common tools and websites",
+    whatItIs:
+      "HomePage is a lightweight static dashboard made for personal daily use. It opens with a greeting, search bar, quick-launch tiles, clock/date card, weather area, and theme support. It is designed to reduce friction when opening commonly used tools and websites.",
+    features: [
+      "Google search input.",
+      "Quick launch tiles for Google, YouTube, Gemini, ChatGPT, WhatsApp, Canvas, OneDrive, Gmail, GitHub, and Outlook.",
+      "Dark/light mode direction.",
+      "Clock and date display.",
+      "Weather widget/status area.",
+      "Custom icons.",
+      "Static deployment workflow.",
+    ],
+    screenshots: [
+      "Welcome dashboard",
+      "Search card",
+      "Quick launch grid",
+      "Clock/date card",
+      "Weather card",
+      "Theme toggle",
+    ],
+    learned: [
+      "Small personal tools are powerful when they remove repeated daily steps.",
+      "A homepage should be fast, clear, and instantly useful.",
+      "Static apps are perfect for this kind of utility because they stay simple and reliable.",
+      "Good visual polish matters even for a private tool because it becomes part of the daily workspace.",
+    ],
+  },
+  {
+    title: "MediConnect",
+    slug: "mediconnect",
+    type: "Digital Healthcare Platform for Sri Lanka",
+    status: "University Applied Project",
+    impact:
+      "A secure web-based healthcare platform concept for connecting patients, doctors, hospitals, pharmacies, and government health authorities through one role-driven digital system.",
+    description:
+      "A secure web-based healthcare platform concept for connecting patients, doctors, hospitals, pharmacies, and government health authorities through one role-driven digital system.",
+    stack: [
+      "React.js / Next.js",
+      "FastAPI",
+      "PostgreSQL",
+      "Supabase",
+      "JWT Authentication",
+      "Figma",
+      "draw.io / Lucidchart",
+      "Docker",
+      "Gemini API",
+      "GitHub",
+      "Jira",
+    ],
     icon: "medical",
     category: "Health Tech",
-    scale: "Academic + Practical",
-    highlight: "Government hospital workflow thinking",
+    scale: "Team Project / University Applied Project",
+    highlight: "Role-driven healthcare workflows for Sri Lanka",
+    whatItIs:
+      "MediConnect is a team project designed to modernize healthcare workflows in Sri Lanka. The platform focuses on reducing paper-based hospital processes by bringing appointments, patient identity, medical records, e-prescriptions, pharmacy dispensing, consent, and government-level analytics into a centralized web portal.",
+    myRole:
+      "I worked as the Frontend Developer / UI Engineer. The original project idea was mine, and I contributed heavily to shaping the product direction. I was mainly responsible for the frontend experience, user flows, role-based screens, reusable UI structure, and final interface polish. I also supported the team with system architecture thinking and backend workflow planning where needed.",
+    features: [
+      "Patient, doctor, hospital admin, pharmacy admin, and health ministry admin dashboards.",
+      "Secure role-based registration and login flow.",
+      "Digital Health ID direction with QR-based patient identification.",
+      "Appointment booking and doctor availability flow.",
+      "Patient consent handling before clinical access.",
+      "Electronic medical records and encounter history direction.",
+      "Digitally signed e-prescription lifecycle.",
+      "Pharmacy prescription lookup, dispensing, inventory, and billing direction.",
+      "AI patient chatbot and doctor summary assistant concept.",
+      "Government analytics dashboard for anonymized healthcare trends.",
+      "Audit logging and security-focused access boundaries.",
+    ],
+    screenshots: [
+      "Patient dashboard",
+      "Doctor dashboard",
+      "Hospital admin dashboard",
+      "Pharmacy dashboard",
+      "Health ministry dashboard",
+      "Appointment booking",
+      "Medical records",
+      "ePrescription flow",
+      "AI chatbot",
+      "Analytics dashboard",
+    ],
+    teamContribution:
+      "This was a collaborative applied project with separate responsibilities across frontend, backend, database, security, DevOps, and QA. My main contribution was turning the project idea into clear user-facing workflows and building the frontend direction around five different healthcare roles. I also helped connect the frontend thinking with the system architecture and backend requirements so the UI was not just visual, but aligned with real data and role permissions.",
+    learned: [
+      "Healthcare systems are complex because every role has different access needs.",
+      "Frontend design becomes harder when the same platform must serve patients, doctors, hospitals, pharmacies, and government admins.",
+      "A good UI for healthcare must be simple, trustworthy, and careful with sensitive data.",
+      "Team projects need clear task ownership, but architecture decisions still need shared understanding.",
+      "The biggest challenge was balancing a large idea with the time limits of a university project while keeping the system realistic and presentable.",
+    ],
   },
   {
     title: "Telescope Automation System",
@@ -218,19 +419,106 @@ const projects: readonly Project[] = [
     highlight: "Built because commercial tools are expensive",
   },
   {
-    title: "ShadowRun: Signal Collapse",
-    slug: "shadowrun-signal-collapse",
+    title: "DreamFall_The Last Light",
+    slug: "dreamfall-the-last-light",
+    type: "Level-Based Unity Game",
+    status: "Unity Project",
+    impact:
+      "A Unity game project with a main menu and first playable level structure.",
+    description:
+      "A Unity game project with a main menu and first playable level structure.",
+    stack: ["Unity 2022.3", "C#", "Unity scenes", "Game design", "Build pipeline"],
+    icon: "game",
+    category: "Game Dev",
+    scale: "Game Dev",
+    highlight: "Level-based Unity project with menu and first stage flow",
+    whatItIs:
+      "DreamFall_The Last Light is a Unity 2022.3 project. The project contains a MainMenu scene and a Level01 scene, which suggests a level-based game structure with a playable first stage and menu flow. There is also a build folder, meaning the project has likely been run or exported before.",
+    features: [
+      "Main menu scene.",
+      "Level01 gameplay scene.",
+      "Unity build output folder.",
+      "Standard Unity project structure with Assets, Packages, ProjectSettings, Library, Logs, and Build.",
+      "Level-based game direction.",
+    ],
+    screenshots: ["Main menu", "Level01", "Gameplay environment", "Build/playtest output"],
+    learned: [
+      "A menu plus level scene is the foundation for turning an experiment into a playable game.",
+      "Unity projects need clean scene organization from the beginning.",
+      "Without project notes, the game idea becomes harder to recover later, so README-style documentation would help.",
+      "The next useful step would be defining the core gameplay loop clearly.",
+    ],
+  },
+  {
+    title: "Realmwalker - The Forgotten Path",
+    slug: "realmwalker-the-forgotten-path",
+    type: "Adventure / Level-Based Unity Game",
+    status: "Multi-Level Unity Project",
+    impact:
+      "A larger Unity game direction with menu flow and multiple level scenes.",
+    description:
+      "A Unity game project with a main menu and multiple levels, making it one of the larger game projects in the folder.",
+    stack: ["Unity 2022.3", "C#", "Unity scene workflow", "Level design", "Game progression", "Build pipeline"],
+    icon: "game",
+    category: "Game Dev",
+    scale: "Game Dev",
+    highlight: "Multi-level Unity adventure direction",
+    whatItIs:
+      "Realmwalker - The Forgotten Path is a Unity 2022.3 project with MainMenu, Level01, Level02, and Level03 scenes. The multiple level scenes suggest a broader adventure or progression-based game compared with the one-level prototypes. There are also backup/copy versions of this project in the Games folder, which suggests it has gone through multiple iterations.",
+    features: [
+      "Main menu scene.",
+      "Three level scenes: Level01, Level02, Level03.",
+      "Backup/copy project versions available.",
+      "Unity build folder.",
+      "Standard Unity project structure.",
+      "Likely progression-based gameplay flow.",
+    ],
+    screenshots: ["Main menu", "Level01", "Level02", "Level03", "Gameplay progression", "Build/playtest output"],
+    learned: [
+      "Multi-level games need consistent progression logic and scene management.",
+      "Manual backup copies can protect work, but they become confusing if the latest version is not clearly marked.",
+      "A project with several levels needs stronger documentation than a single-scene prototype.",
+      "The biggest challenge is keeping gameplay consistent across all levels.",
+    ],
+  },
+  {
+    title: "ShadowRun_SignalCollapse",
+    slug: "shadowrun-signalcollapse",
     type: "2D Side-Scroller Game",
     status: "Playable Prototype",
     impact:
-      "Unity action platformer with combat, projectile shooting, dash strike, enemies, menus, and final objective gameplay.",
+      "Gameplay-focused Unity side-scroller direction with combat, enemies, and a final objective.",
     description:
-      "A cinematic 2D side-scrolling game prototype about a prince fighting through corrupted lands to destroy a Signal Tower.",
-    stack: ["Unity", "C#", "2D Platformer", "Game Design", "Animation"],
+      "A cinematic 2D side-scrolling game prototype about fighting through corrupted lands toward a final objective.",
+    stack: ["Unity 2022.3", "C#", "2D Platformer", "Game Design", "Animation", "Combat systems"],
     icon: "game",
     category: "Game Dev",
     scale: "Academic + Creative",
     highlight: "Gameplay systems beyond basic coursework",
+    whatItIs:
+      "ShadowRun_SignalCollapse is a Unity 2022.3 project with MainMenu and Level01 scenes. Based on the portfolio project text, it is a 2D side-scroller with combat, projectile shooting, dash strike, enemies, menus, and final objective gameplay. It appears to be one of the more gameplay-focused Unity projects.",
+    features: [
+      "Main menu scene.",
+      "Level01 gameplay scene.",
+      "2D side-scrolling action direction.",
+      "Combat and projectile shooting direction.",
+      "Dash strike and enemy gameplay direction.",
+      "Final objective gameplay around destroying a Signal Tower.",
+      "Unity build folder and standard project structure.",
+    ],
+    screenshots: [
+      "Main menu",
+      "Level01 gameplay",
+      "Player combat",
+      "Enemy encounters",
+      "Final objective direction",
+    ],
+    learned: [
+      "A side-scroller becomes interesting when movement, combat, enemies, and objectives feel connected.",
+      "Gameplay feel matters more than visual complexity at prototype stage.",
+      "Menus, enemies, attacks, and objectives turn a basic level into a real playable loop.",
+      "The hardest part is making the controls and combat feel responsive enough to trust.",
+    ],
   },
   {
     title: "Mesh Forge 3D",
@@ -250,21 +538,46 @@ const projects: readonly Project[] = [
   {
     title: "Operation Signal Blackout",
     slug: "operation-signal-blackout",
-    type: "Unity Mission-Based Game Project",
+    type: "Mission-Based Unity Game",
     status: "Custom Unity Project",
-    impact: "Custom Unity project focused on mission-based gameplay direction.",
-    description: "A Unity game project built around mission-style action and environment presentation.",
+    impact: "Mission-style Unity game direction with island battle and outdoor environment tooling.",
+    description:
+      "A Unity mission-style game project focused on action, environment presentation, and island battle gameplay direction.",
     stack: [
-      "Unity",
+      "Unity 2022.3",
       "C#",
       "Game Systems",
       "Environment Tooling",
       "Vegetation Spawner",
+      "Level design",
     ],
     icon: "game",
     category: "Game Dev",
     scale: "Custom Project",
     highlight: "Mission-based Unity gameplay direction",
+    whatItIs:
+      "Operation Signal Blackout is a Unity 2022.3 project with MainMenu and IslandBattle scenes. The project also references vegetation/environment tooling, which suggests an outdoor or island-based mission environment. It looks like a custom game project built around a specific battle or mission scenario.",
+    features: [
+      "Main menu scene.",
+      "IslandBattle gameplay scene.",
+      "Environment and vegetation tooling direction.",
+      "Unity build folder.",
+      "Mission-based gameplay structure.",
+      "Standard Unity Assets, Packages, ProjectSettings, and Build setup.",
+    ],
+    screenshots: [
+      "Main menu",
+      "Island battle scene",
+      "Outdoor environment",
+      "Mission gameplay",
+      "Build/playtest output",
+    ],
+    learned: [
+      "Mission-based games need clear objectives, pacing, and readable environments.",
+      "Environment detail can improve atmosphere, but it also adds performance and organization challenges.",
+      "Unity scene design becomes easier when gameplay, terrain, and objective flow are planned together.",
+      "The project shows direction beyond a basic scene because it has a named battle environment.",
+    ],
   },
   {
     title: "Velocity Browser",
@@ -285,11 +598,20 @@ const projects: readonly Project[] = [
 
 const featuredProjectSlugs = [
   "volt-ide",
+  "pixel-forge-studio",
+  "neurofit",
+  "mediconnect",
+  "wallet",
+  "homepage",
+  "dreamfall-the-last-light",
+  "operation-signal-blackout",
+  "realmwalker-the-forgotten-path",
+  "shadowrun-signalcollapse",
 ] as const;
 
 const projectFilterOptions = [
   { label: "All", categories: ["All"] },
-  { label: "Applications", categories: ["Health Tech", "System Tools", "Browser Concept"] },
+  { label: "Applications", categories: ["Health Tech", "System Tools", "Browser Concept", "Business Systems", "Personal Utility"] },
   { label: "Developer Tools", categories: ["Developer Tools"] },
   { label: "AI Tools", categories: ["AI Tools"] },
   { label: "Games", categories: ["Game Dev"] },
@@ -335,7 +657,7 @@ const education = [
 const skillGroups = [
   {
     title: "Engineering",
-    icon: "code",
+    icon: "settings",
     items: [
       "Software Engineering",
       "System Design",
@@ -397,7 +719,7 @@ const skillGroups = [
 const techGroups = [
   {
     title: "Frontend",
-    icon: "code",
+    icon: "window",
     items: ["React", "TypeScript", "Tailwind", "Vite"],
   },
   {
@@ -438,7 +760,7 @@ type IconName = keyof ReturnType<typeof iconFactories>;
 const pageIcons: Record<PageName, IconName> = {
   Home: "home",
   Projects: "briefcase",
-  Skills: "code",
+  Skills: "settings",
   About: "user",
   Contact: "mail",
 };
@@ -784,7 +1106,7 @@ function runSelfTests() {
   console.assert(filterProjects(projects, "volt", "Developer Tools").some((p) => p.title === "Volt IDE"), "Self-test failed: Developer Tools filter should include Volt IDE.");
   console.assert(filterProjects(projects, "signal", "Games").length === 2, "Self-test failed: Games group should include both game projects.");
   console.assert(getProjectBySlug("volt-ide")?.title === "Volt IDE", "Self-test failed: Volt detail slug should resolve.");
-  console.assert(getFeaturedProjects().length === 1, "Self-test failed: Projects page should show only Volt IDE for now.");
+  console.assert(getFeaturedProjects().length === 10, "Self-test failed: Projects page should show documented featured projects.");
   console.assert(getEducationByLevel(education, "Degree").length === 1, "Self-test failed: Degree education should have one item.");
   console.assert(getEducationByLevel(education, "School").length === 2, "Self-test failed: School education should have two items.");
   console.assert(quickStats.length === 3, "Self-test failed: Home quick stats should have three items.");
@@ -821,6 +1143,10 @@ function StackIcon({ name }: { name: string }) {
     );
   }
 
+  if (normalized.includes("react")) {
+    return <Icon name="layers" className={`${baseClass} text-cyan-300`} />;
+  }
+
   if (normalized === "rust") {
     return <Icon name="settings" className={`${baseClass} text-orange-300`} />;
   }
@@ -838,11 +1164,11 @@ function StackIcon({ name }: { name: string }) {
   }
 
   if (normalized === "powershell") {
-    return <Icon name="code" className={`${baseClass} text-blue-300`} />;
+    return <Icon name="terminal" className={`${baseClass} text-blue-300`} />;
   }
 
   if (normalized === "typescript") {
-    return <Icon name="code" className={`${baseClass} text-sky-400`} />;
+    return <Icon name="hexagon" className={`${baseClass} text-sky-400`} />;
   }
 
   if (normalized === "tailwind") {
@@ -921,13 +1247,85 @@ function StackIcon({ name }: { name: string }) {
     return <Icon name="zap" className={`${baseClass} text-violet-300`} />;
   }
 
-  return <Icon name="code" className={`${baseClass} text-zinc-300`} />;
+  if (normalized.includes("mobile") || normalized.includes("app architecture")) {
+    return <Icon name="smartphone" className={`${baseClass} text-cyan-300`} />;
+  }
+
+  if (normalized.includes("health") || normalized.includes("coach")) {
+    return <Icon name="medical" className={`${baseClass} text-emerald-300`} />;
+  }
+
+  if (normalized.includes("shared") || normalized.includes("logic") || normalized.includes("api")) {
+    return <Icon name="boxes" className={`${baseClass} text-emerald-300`} />;
+  }
+
+  if (normalized.includes("jwt") || normalized.includes("auth")) {
+    return <Icon name="shield" className={`${baseClass} text-emerald-300`} />;
+  }
+
+  if (normalized.includes("figma") || normalized.includes("draw.io") || normalized.includes("lucidchart")) {
+    return <Icon name="diamond" className={`${baseClass} text-fuchsia-300`} />;
+  }
+
+  if (normalized.includes("docker")) {
+    return <Icon name="boxes" className={`${baseClass} text-sky-300`} />;
+  }
+
+  if (normalized.includes("github") || normalized.includes("jira")) {
+    return <Icon name="briefcase" className={`${baseClass} text-zinc-200`} />;
+  }
+
+  if (normalized === "html" || normalized === "css" || normalized === "javascript") {
+    return <Icon name="window" className={`${baseClass} text-yellow-300`} />;
+  }
+
+  if (normalized.includes("static") || normalized.includes("hosting") || normalized.includes("github actions")) {
+    return <Icon name="rocket" className={`${baseClass} text-cyan-300`} />;
+  }
+
+  if (normalized === "sql" || normalized.includes("database")) {
+    return <Icon name="database" className={`${baseClass} text-sky-300`} />;
+  }
+
+  if (normalized.includes("admin") || normalized.includes("catalog") || normalized.includes("subscription")) {
+    return <Icon name="briefcase" className={`${baseClass} text-lime-300`} />;
+  }
+
+  if (normalized.includes("router") || normalized.includes("lucide")) {
+    return <Icon name="layers" className={`${baseClass} text-indigo-300`} />;
+  }
+
+  if (normalized.includes("pdf") || normalized.includes("pptx") || normalized.includes("svg") || normalized.includes("export")) {
+    return <Icon name="external" className={`${baseClass} text-fuchsia-300`} />;
+  }
+
+  if (normalized.includes("gemini")) {
+    return <Icon name="zap" className={`${baseClass} text-violet-300`} />;
+  }
+
+  if (normalized.includes("windows") || normalized.includes("browser ui") || normalized.includes("sidebar")) {
+    return <Icon name="window" className={`${baseClass} text-sky-300`} />;
+  }
+
+  if (normalized.includes("network")) {
+    return <Icon name="shield" className={`${baseClass} text-cyan-300`} />;
+  }
+
+  if (normalized.includes("unity") || normalized.includes("game") || normalized.includes("level") || normalized.includes("platformer") || normalized.includes("combat") || normalized.includes("animation")) {
+    return <Icon name="game" className={`${baseClass} text-rose-300`} />;
+  }
+
+  if (normalized === "3d" || normalized === "cad" || normalized === "fbx" || normalized.includes("scene graph") || normalized.includes("creative") || normalized.includes("product design")) {
+    return <Icon name="cube" className={`${baseClass} text-fuchsia-300`} />;
+  }
+
+  return <Icon name="boxes" className={`${baseClass} text-zinc-300`} />;
 }
 
 function StackItem({ item }: { item: string }) {
   return (
-    <span className={`inline-flex items-center gap-2 rounded-xl px-2.5 py-1.5 text-[11px] font-bold text-zinc-200 sm:px-3 sm:py-2 sm:text-xs ${projectChipGlass}`}>
-      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/[0.045] sm:h-7 sm:w-7">
+    <span className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-[10px] font-bold text-zinc-200 sm:px-2.5 sm:py-1.5 sm:text-[11px] ${projectChipGlass}`}>
+      <span className="grid h-5 w-5 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.045] sm:h-6 sm:w-6">
         <StackIcon name={item} />
       </span>
       {item}
@@ -979,7 +1377,7 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.32, delay: index * 0.035 }}
-      className={`group relative overflow-hidden rounded-[1.5rem] p-4 sm:rounded-[1.75rem] sm:p-6 ${projectGlass}`}
+      className={`group relative overflow-hidden rounded-[1.25rem] p-3.5 sm:rounded-[1.5rem] sm:p-4 ${projectGlass}`}
     >
       <div
         className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100"
@@ -988,29 +1386,29 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
         }}
       />
 
-      <div className="relative mb-5 flex min-h-[118px] items-end overflow-hidden rounded-[1.25rem] border border-white/10 bg-gradient-to-br from-cyan-300/[0.16] via-blue-500/[0.12] to-violet-400/[0.10] p-4 sm:mb-6 sm:min-h-[140px] sm:rounded-[1.5rem] sm:p-5">
-        <div className="grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-[#07101d]/70 text-cyan-200 shadow-[0_18px_40px_rgba(0,0,0,0.28)] sm:h-16 sm:w-16">
-          <Icon name={project.icon} className="h-8 w-8" />
+      <div className="relative mb-4 flex min-h-[82px] items-end overflow-hidden rounded-[1rem] border border-white/10 bg-gradient-to-br from-cyan-300/[0.16] via-blue-500/[0.12] to-violet-400/[0.10] p-3 sm:min-h-[96px] sm:rounded-[1.25rem] sm:p-4">
+        <div className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-[#07101d]/70 text-cyan-200 shadow-[0_14px_30px_rgba(0,0,0,0.24)] sm:h-12 sm:w-12">
+          <Icon name={project.icon} className="h-6 w-6" />
         </div>
       </div>
 
-      <h3 style={{ fontFamily: headingFont }} className="relative text-xl font-black text-white sm:text-2xl">
+      <h3 style={{ fontFamily: headingFont }} className="relative text-lg font-black text-white sm:text-xl">
         {project.title}
       </h3>
       <p className={`relative mt-1 text-sm font-semibold ${accentClass.split(" ")[0]}`}>
         {project.type}
       </p>
-      <p className="relative mt-4 text-sm leading-7 text-zinc-400">
+      <p className="relative mt-3 text-sm leading-6 text-zinc-400">
         {project.description}
       </p>
 
-      <div className="relative mt-5 flex flex-wrap gap-2 border-b border-white/10 pb-5">
+      <div className="relative mt-4 flex flex-wrap gap-2 border-b border-white/10 pb-4">
         {project.stack.map((item) => (
           <StackItem key={item} item={item} />
         ))}
       </div>
 
-      <div className="relative mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <div className="relative mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button
           type="button"
           onClick={() => onOpen(slug)}
@@ -1019,15 +1417,6 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
           <Icon name="briefcase" className="h-3.5 w-3.5" />
           View Project
         </button>
-        <a
-          href={project.liveDemoUrl || "#"}
-          target={project.liveDemoUrl && project.liveDemoUrl !== "#" ? "_blank" : undefined}
-          rel="noreferrer"
-          className="inline-flex w-full min-w-[118px] items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-4 py-2.5 text-xs font-black text-white transition hover:bg-white/[0.13] sm:w-auto"
-        >
-          <Icon name="external" className="h-3.5 w-3.5" />
-          Live Demo
-        </a>
       </div>
     </motion.article>
   );
@@ -1083,8 +1472,8 @@ function ProjectsPage({ onOpenProject }: { onOpenProject: (slug: string) => void
     <Page>
       <SectionTitle
         eyebrow="Selected Work"
-        title="Featured Build"
-        text="A closer look at one active project for now. More projects will be added as they are cleaned up and documented."
+        title="Featured Builds"
+        text="A closer look at documented projects across developer tools, AI apps, business systems, utilities, and game prototypes."
       />
 
       <div className={`mb-6 rounded-[1.5rem] p-2 sm:mb-8 sm:rounded-[1.75rem] sm:p-3 ${projectGlass}`}>
@@ -1118,7 +1507,7 @@ function ProjectsPage({ onOpenProject }: { onOpenProject: (slug: string) => void
         </div>
       </div>
 
-      <div className="single-project-grid mx-auto grid w-full gap-6">
+      <div className="projects-grid mx-auto grid w-full gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filteredProjects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} onOpen={onOpenProject} />
         ))}
@@ -1215,6 +1604,26 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
         </section>
 
         <section className={`rounded-[1.5rem] p-6 ${glass}`}>
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">
+            {project.myRole ? "My role" : "Key features"}
+          </p>
+          {project.myRole ? (
+            <p className="mt-4 text-sm leading-7 text-zinc-300">{project.myRole}</p>
+          ) : (
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {features.map((feature) => (
+                <div key={feature} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                  <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
+                  <p className="text-sm leading-6 text-zinc-300">{feature}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      </div>
+
+      {project.myRole && (
+        <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Key features</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {features.map((feature) => (
@@ -1225,7 +1634,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
             ))}
           </div>
         </section>
-      </div>
+      )}
 
       <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Tech stack</p>
@@ -1249,6 +1658,13 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
           ))}
         </div>
       </section>
+
+      {project.teamContribution && (
+        <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Team project contribution</p>
+          <p className="mt-4 text-sm leading-7 text-zinc-300">{project.teamContribution}</p>
+        </section>
+      )}
 
       <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">What I learned / challenges</p>

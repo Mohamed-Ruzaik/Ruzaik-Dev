@@ -50,13 +50,13 @@ input {
   max-width: min(100%, 1280px);
 }
 
-.single-project-grid {
-  max-width: min(100%, 600px);
+.projects-grid {
+  max-width: min(100%, 1160px);
 }
 
 @media (min-width: 768px) {
-  .single-project-grid {
-    max-width: min(72vw, 660px);
+  .projects-grid {
+    max-width: min(94vw, 1180px);
   }
 }
 
@@ -73,8 +73,8 @@ input {
     max-width: min(82vw, 1400px);
   }
 
-  .single-project-grid {
-    max-width: 700px;
+  .projects-grid {
+    max-width: min(84vw, 1320px);
   }
 }
 
@@ -91,8 +91,8 @@ input {
     max-width: min(76vw, 1560px);
   }
 
-  .single-project-grid {
-    max-width: 760px;
+  .projects-grid {
+    max-width: min(78vw, 1460px);
   }
 }
 
