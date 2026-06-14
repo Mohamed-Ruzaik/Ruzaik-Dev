@@ -19,6 +19,7 @@ type Project = {
   highlight: string;
   whatItIs?: string;
   myRole?: string;
+  specifications?: readonly string[];
   features?: readonly string[];
   screenshots?: readonly string[];
   teamContribution?: string;
@@ -383,25 +384,69 @@ const projects: readonly Project[] = [
     ],
   },
   {
-    title: "Telescope Automation System",
-    slug: "telescope-automation-system",
-    type: "Hardware / Optical System Concept",
-    status: "Under Design",
+    title: "Custom Newtonian Reflector Telescope",
+    slug: "custom-newtonian-reflector-telescope",
+    type: "114 mm Newtonian Reflector Telescope",
+    status: "Functional Build",
     impact:
-      "A telescope rebuild concept focused on mechanical design, image capture direction, and future auto-focus planning.",
+      "A fully functional 114 mm Newtonian reflector telescope designed and built from the ground up using PVC, wood, plumbing components, and commercially sourced optics.",
     description:
-      "A personal hardware-software project currently in the design stage, exploring telescope structure, control flow, image capture workflow, and future automation possibilities.",
+      "A fully functional 114 mm Newtonian reflector telescope designed and built from the ground up using PVC, wood, plumbing components, and commercially sourced optics. The project focused on creating a practical astronomical instrument through mechanical design, optical alignment, structural fabrication, and iterative testing.",
     stack: [
-      "Hardware",
       "Optics",
-      "Automation Planning",
-      "Control System",
-      "Image Capture",
+      "Mechanical Design",
+      "PVC Fabrication",
+      "Woodworking",
+      "Optical Alignment",
+      "Collimation",
+      "Alt-Azimuth Mount",
+      "Iterative Testing",
     ],
     icon: "telescope",
     category: "Hardware",
-    scale: "Design Stage",
-    highlight: "Hardware design first, automation later",
+    scale: "Hardware / Optical System",
+    highlight: "Optical engineering meets hands-on problem solving",
+    whatItIs:
+      "This telescope was designed and assembled as a complete custom-built optical system rather than a kit-based assembly. The mechanical structure, mounting system, tripod, focuser, and alignment mechanisms were independently designed, fabricated, tested, and refined to create a stable and usable astronomical telescope.\n\nThe goal was to build a working reflector telescope capable of observing celestial objects while learning the practical challenges of optics, structural design, alignment, and precision adjustment.",
+    specifications: [
+      "Aperture: 114 mm",
+      "Focal Length: 900 mm",
+      "Optical Design: Newtonian Reflector",
+      "Primary Mirror: Spherical Mirror",
+      "Eyepiece: 10 mm",
+      "Barlow Lens: 2x",
+      "Telescope Tube: PVC Construction",
+      "Mount: Custom Pipe-Based Alt-Azimuth Mount",
+      "Tripod: Handmade Wooden Tripod",
+      "Focuser: Custom PVC Focuser",
+    ],
+    features: [
+      "Custom-built optical tube assembly using PVC materials.",
+      "Handmade wooden tripod designed for portability and stability.",
+      "Pipe-based mount allowing manual altitude and azimuth movement.",
+      "Custom-designed PVC focuser system for eyepiece positioning and focusing.",
+      "Collimatable primary and secondary mirror arrangement.",
+      "Modular construction allowing adjustments, upgrades, and maintenance.",
+      "Independent optical alignment and calibration process.",
+      "Field-tested during both daytime and nighttime observations.",
+      "Design process driven by physical prototyping and iterative problem solving.",
+    ],
+    screenshots: [
+      "Daytime telescope assembly",
+      "Night observation setup",
+      "Optical tube structure",
+      "Custom mount system",
+      "Wooden tripod construction",
+      "PVC focuser mechanism",
+      "Mirror alignment system",
+    ],
+    learned: [
+      "Building a telescope involves much more than placing mirrors inside a tube. Mechanical rigidity, alignment accuracy, balance, and focusing precision directly affect image quality.",
+      "Small alignment errors in the optical path can significantly reduce performance, making collimation one of the most important aspects of the design.",
+      "Structural components must remain stable while allowing smooth movement and adjustment, requiring a balance between rigidity and usability.",
+      "The project demonstrated how engineering decisions in mechanics, optics, and user interaction combine to create a functional scientific instrument.",
+      "Perhaps the most valuable lesson was learning how to move from an idea in my head to a working physical system through experimentation, testing, iteration, and problem solving without relying on a pre-built design.",
+    ],
   },
   {
     title: "Net Warden",
@@ -597,6 +642,7 @@ const projects: readonly Project[] = [
 ] as const;
 
 const featuredProjectSlugs = [
+  "custom-newtonian-reflector-telescope",
   "volt-ide",
   "pixel-forge-studio",
   "neurofit",
@@ -1106,7 +1152,7 @@ function runSelfTests() {
   console.assert(filterProjects(projects, "volt", "Developer Tools").some((p) => p.title === "Volt IDE"), "Self-test failed: Developer Tools filter should include Volt IDE.");
   console.assert(filterProjects(projects, "signal", "Games").length === 2, "Self-test failed: Games group should include both game projects.");
   console.assert(getProjectBySlug("volt-ide")?.title === "Volt IDE", "Self-test failed: Volt detail slug should resolve.");
-  console.assert(getFeaturedProjects().length === 10, "Self-test failed: Projects page should show documented featured projects.");
+  console.assert(getFeaturedProjects().length === 11, "Self-test failed: Projects page should show documented featured projects.");
   console.assert(getEducationByLevel(education, "Degree").length === 1, "Self-test failed: Degree education should have one item.");
   console.assert(getEducationByLevel(education, "School").length === 2, "Self-test failed: School education should have two items.");
   console.assert(quickStats.length === 3, "Self-test failed: Home quick stats should have three items.");
@@ -1600,7 +1646,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
       <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <section className={`rounded-[1.5rem] p-6 ${glass}`}>
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">What it is</p>
-          <p className="mt-4 text-sm leading-7 text-zinc-300">{project.whatItIs || project.description}</p>
+          <p className="mt-4 whitespace-pre-line text-sm leading-7 text-zinc-300">{project.whatItIs || project.description}</p>
         </section>
 
         <section className={`rounded-[1.5rem] p-6 ${glass}`}>
@@ -1630,6 +1676,20 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
               <div key={feature} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                 <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
                 <p className="text-sm leading-6 text-zinc-300">{feature}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {project.specifications && (
+        <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Specifications</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {project.specifications.map((spec) => (
+              <div key={spec} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <Icon name="telescope" className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" />
+                <p className="text-sm leading-6 text-zinc-300">{spec}</p>
               </div>
             ))}
           </div>
