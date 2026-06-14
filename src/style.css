@@ -37,6 +37,65 @@ input {
   min-height: 100vh;
 }
 
+.page-shell {
+  max-width: min(100%, 1500px);
+}
+
+.nav-shell {
+  max-width: min(100%, 1500px);
+}
+
+.wide-content {
+  width: 100%;
+  max-width: min(100%, 1280px);
+}
+
+.single-project-grid {
+  max-width: min(100%, 600px);
+}
+
+@media (min-width: 768px) {
+  .single-project-grid {
+    max-width: min(72vw, 660px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .page-shell {
+    max-width: min(88vw, 1680px);
+  }
+
+  .nav-shell {
+    max-width: min(88vw, 1680px);
+  }
+
+  .wide-content {
+    max-width: min(82vw, 1400px);
+  }
+
+  .single-project-grid {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .page-shell {
+    max-width: min(84vw, 1900px);
+  }
+
+  .nav-shell {
+    max-width: min(84vw, 1900px);
+  }
+
+  .wide-content {
+    max-width: min(76vw, 1560px);
+  }
+
+  .single-project-grid {
+    max-width: 760px;
+  }
+}
+
 body,
 #app,
 .animated-bg,
@@ -56,19 +115,20 @@ body,
 
 .theme-light {
   color: #0f172a;
-  background: #edf4ff !important;
+  background: #eef4fb !important;
 }
 
 .theme-light .animated-bg {
-  background: #edf4ff !important;
+  background:
+    linear-gradient(180deg, #f8fbff 0%, #eef4fb 48%, #e8f0fa 100%) !important;
 }
 
 .theme-light .animated-bg__aurora {
   background:
-    radial-gradient(circle at 10% 4%, rgba(14, 165, 233, 0.18), transparent 22%),
-    radial-gradient(circle at 26% 12%, rgba(99, 102, 241, 0.12), transparent 18%),
-    radial-gradient(circle at 72% 2%, rgba(16, 185, 129, 0.1), transparent 18%),
-    radial-gradient(circle at 88% 18%, rgba(244, 114, 182, 0.08), transparent 20%) !important;
+    radial-gradient(circle at 10% 4%, rgba(14, 165, 233, 0.2), transparent 24%),
+    radial-gradient(circle at 30% 14%, rgba(79, 70, 229, 0.13), transparent 20%),
+    radial-gradient(circle at 78% 4%, rgba(16, 185, 129, 0.13), transparent 20%),
+    radial-gradient(circle at 88% 20%, rgba(244, 114, 182, 0.1), transparent 22%) !important;
 }
 
 .theme-light .animated-bg__grid {
@@ -84,7 +144,7 @@ body,
 }
 
 .theme-light .animated-bg__vignette {
-  background: radial-gradient(circle at center, transparent 42%, rgba(255, 255, 255, 0.44) 100%) !important;
+  background: radial-gradient(circle at center, transparent 38%, rgba(226, 232, 240, 0.72) 100%) !important;
 }
 
 .theme-light .animated-bg__line {
@@ -92,19 +152,35 @@ body,
 }
 
 .theme-light .site-nav {
-  border-color: rgba(15, 23, 42, 0.08) !important;
-  background: rgba(255, 255, 255, 0.68) !important;
-  box-shadow: 0 10px 40px rgba(148, 163, 184, 0.18);
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: 0 12px 38px rgba(100, 116, 139, 0.16);
 }
 
-.theme-light .surface-pill,
-.theme-light .surface-card,
-.theme-light .surface-subtle,
+.theme-light .surface-card {
+  border-color: rgba(100, 116, 139, 0.22) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 18px 46px rgba(51, 65, 85, 0.13) !important;
+}
+
+.theme-light .surface-subtle {
+  border-color: rgba(100, 116, 139, 0.2) !important;
+  background: rgba(248, 251, 255, 0.92) !important;
+  box-shadow: 0 10px 28px rgba(51, 65, 85, 0.08) !important;
+}
+
 .theme-light .surface-chip,
+.theme-light .surface-pill {
+  border-color: rgba(100, 116, 139, 0.22) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 10px 24px rgba(100, 116, 139, 0.08) !important;
+}
+
 .theme-light .theme-toggle {
-  border-color: rgba(148, 163, 184, 0.24) !important;
-  background: rgba(255, 255, 255, 0.74) !important;
-  box-shadow: 0 18px 50px rgba(148, 163, 184, 0.14) !important;
+  border-color: rgba(14, 165, 233, 0.22) !important;
+  background: rgba(14, 165, 233, 0.08) !important;
+  color: #0369a1 !important;
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.12) !important;
 }
 
 .theme-light .text-white,
@@ -121,7 +197,7 @@ body,
 
 .theme-light .text-zinc-400,
 .theme-light .text-zinc-500 {
-  color: #475569 !important;
+  color: #52637a !important;
 }
 
 .theme-light .text-black {
@@ -133,7 +209,10 @@ body,
 }
 
 .theme-light .bg-white.text-black,
-.theme-light a.text-black {
+.theme-light .bg-white.\!text-black,
+.theme-light a.text-black,
+.theme-light a.\!text-black,
+.theme-light button.\!text-black {
   background: #ffffff !important;
   color: #020617 !important;
 }
@@ -144,7 +223,7 @@ body,
 .theme-light .bg-white\/\[0\.032\],
 .theme-light .bg-white\/\[0\.025\],
 .theme-light .bg-white\/\[0\.018\] {
-  background: rgba(255, 255, 255, 0.74) !important;
+  background: rgba(248, 250, 252, 0.86) !important;
 }
 
 .theme-light .border-white\/10,
@@ -153,8 +232,82 @@ body,
   border-color: rgba(148, 163, 184, 0.24) !important;
 }
 
+.theme-light .text-cyan-300,
+.theme-light .text-cyan-200,
+.theme-light .text-cyan-100 {
+  color: #07769f !important;
+}
+
+.theme-light .text-emerald-300,
+.theme-light .text-emerald-200 {
+  color: #059669 !important;
+}
+
+.theme-light .text-amber-300 {
+  color: #b45309 !important;
+}
+
 .theme-light .text-transparent {
   color: transparent !important;
+}
+
+.theme-light .hero-gradient-text {
+  background-image: linear-gradient(90deg, #0f172a 0%, #0891b2 48%, #4f46e5 100%) !important;
+}
+
+.theme-light .section-eyebrow {
+  color: #0891b2 !important;
+  text-shadow: none !important;
+}
+
+.theme-light .primary-action,
+.theme-light .primary-action.bg-white.text-black,
+.theme-light button.primary-action.\!text-black {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18) !important;
+}
+
+.theme-light .primary-action:hover,
+.theme-light .primary-action.bg-white.text-black:hover,
+.theme-light button.primary-action.\!text-black:hover {
+  background: #1e293b !important;
+}
+
+.theme-light .primary-action svg {
+  color: #ffffff !important;
+}
+
+.theme-light .secondary-action {
+  border-color: rgba(100, 116, 139, 0.24) !important;
+  background: rgba(255, 255, 255, 0.74) !important;
+  color: #0f172a !important;
+  box-shadow: 0 12px 24px rgba(100, 116, 139, 0.1) !important;
+}
+
+.theme-light .secondary-action:hover {
+  background: #ffffff !important;
+}
+
+.theme-light .contact-card {
+  border-color: rgba(14, 116, 144, 0.14) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 248, 252, 0.9)) !important;
+  box-shadow: 0 12px 28px rgba(51, 65, 85, 0.1) !important;
+}
+
+.theme-light .contact-card:hover {
+  border-color: rgba(14, 116, 144, 0.26) !important;
+  box-shadow: 0 16px 34px rgba(51, 65, 85, 0.14) !important;
+}
+
+.theme-light .contact-icon-box {
+  border-color: rgba(8, 145, 178, 0.18) !important;
+  background: rgba(236, 254, 255, 0.82) !important;
+  color: #0891b2 !important;
+}
+
+.theme-light .contact-external {
+  color: #64748b !important;
 }
 
 .theme-light .navItemIdle,
