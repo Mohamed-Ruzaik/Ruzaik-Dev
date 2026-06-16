@@ -5,6 +5,7 @@ const pages = ["Home", "Projects", "Skills", "About", "Contact"];
 type ThemeMode = "dark" | "light";
 type PageName = (typeof pages)[number];
 type ViewState = { page: PageName; projectSlug?: string };
+type ProjectScreenshot = string | { label: string; src: string; type?: "image" | "video"; poster?: string };
 type Project = {
   title: string;
   slug?: string;
@@ -21,7 +22,7 @@ type Project = {
   myRole?: string;
   specifications?: readonly string[];
   features?: readonly string[];
-  screenshots?: readonly string[];
+  screenshots?: readonly ProjectScreenshot[];
   teamContribution?: string;
   learned?: readonly string[];
   liveDemoUrl?: string;
@@ -92,104 +93,88 @@ const projects: readonly Project[] = [
   {
     title: "Pixel Forge Studio",
     slug: "pixel-forge-studio",
-    type: "AI Design Platform",
-    status: "Active / Productionizing",
-    impact:
-      "Hybrid design tool combining Canva, Draw.io, PlantUML, and AI-assisted editing.",
+    type: "AI-Assisted Design Tool",
+    status: "Active Build",
+    impact: "A private desktop creative tool exploring AI-assisted visual workflows.",
     description:
-      "A desktop-first creative system for generating diagrams, covers, slides, SVG layouts, project assets, and document visuals with AI-assisted editing workflows.",
-    stack: [
-      "Electron",
-      "React",
-      "TypeScript",
-      "Tailwind",
-      "Supabase",
-      "Gemini",
-      "Monaco",
-      "PDF tools",
-      "PPTX generation",
-      "SVG/export tooling",
-    ],
+      "Private desktop creative tool exploring AI-assisted visual workflows.",
+    stack: ["Electron", "React", "TypeScript", "Supabase", "AI"],
     icon: "layers",
     category: "AI Tools",
     scale: "Signature Build",
-    highlight: "Design automation + visual editor ecosystem",
+    highlight: "AI-assisted creative production workspace",
     whatItIs:
-      "PixelForge Studio is an Electron desktop app for creative production and export. It is shaped like a hybrid design workspace: part visual editor, part document asset generator, part diagram tool, and part AI-assisted creative assistant. The project focuses on turning ideas into usable files, not only previews.",
+      "Pixel Forge Studio is a desktop creative tool focused on helping users turn ideas into usable visual assets. The public version highlights the product direction, interface thinking, and practical design workflow without exposing detailed internal decisions.",
+    myRole:
+      "I designed the product direction, built the desktop UI, shaped the creative workflow, and worked on the overall user experience.",
     features: [
-      "Windows desktop app with installer and portable build direction.",
-      "Supabase login and Google OAuth flow.",
-      "Local project storage and local version history.",
-      "Gemini assistant through a secure main-process proxy.",
-      "Multi-format export pipeline: PNG, JPEG, PDF, ICO, and PPTX.",
-      "Project samples, SVG testing, icon generation, and performance stress scripts.",
-      "Desktop packaging metadata, app icon, and release output setup.",
+      "AI-assisted creative workflow.",
+      "Desktop-first interface direction.",
+      "Project-based workspace.",
+      "Visual output review experience.",
+      "Clean interface for practical creative work.",
     ],
     screenshots: [
-      "Dashboard",
-      "Editor workspace",
-      "AI assistant panel",
-      "Export interface",
-      "Project history",
-      "Login/auth flow",
+      {
+        label: "Dashboard",
+        src: "/project-screenshots/pixel-forge-studio/dashboard.png",
+      },
+      {
+        label: "Login",
+        src: "/project-screenshots/pixel-forge-studio/login.png",
+      },
+      {
+        label: "New project flow",
+        src: "/project-screenshots/pixel-forge-studio/new-project-create-page.png",
+      },
     ],
     learned: [
-      "Creative tools live or die by export quality.",
-      "AI is most useful when it helps produce usable assets, not just suggestions.",
-      "Electron apps need careful separation between renderer UI, secure main-process services, and local file behavior.",
-      "Packaging, icons, installer flow, and portable builds are part of the product experience.",
+      "Creative tools need a clear workflow before advanced features matter.",
+      "Good output quality is as important as a good-looking interface.",
+      "Desktop product design requires careful thinking about speed, layout, and file-based work.",
     ],
   },
   {
     title: "Volt IDE",
     slug: "volt-ide",
-    type: "AI-Core Code Editor",
-    status: "Near Usable",
-    impact:
-      "Built around the loop between files, terminal, tasks, source control, feedback, and AI-assisted iteration.",
+    type: "AI-Assisted Developer Environment",
+    status: "Active Build",
+    impact: "A desktop developer tool focused on project navigation, editing, and workflow automation.",
     description:
-      "A Cursor-like desktop IDE focused on AI command execution, project navigation, terminal output, and developer workflow speed.",
-    stack: [
-      "Tauri",
-      "Rust",
-      "React",
-      "TypeScript",
-      "Vite",
-      "Monaco",
-      "PowerShell",
-      "Node API",
-      "pnpm workspaces",
-    ],
+      "AI-assisted desktop developer environment focused on project navigation, editing, and workflow automation.",
+    stack: ["Tauri", "Rust", "React", "TypeScript", "Developer Tools"],
     icon: "terminal",
     category: "Developer Tools",
     scale: "Core System",
-    highlight: "Real developer workspace, not just an editor screen",
+    highlight: "Developer workflow automation in a desktop environment",
     whatItIs:
-      "Volt IDE is a desktop code editor direction built around a serious developer workflow: workspace navigation, file editing, command execution, terminal output, source control, and task running. It is not just an editor-looking UI; it is structured like a real IDE shell where the editor, terminal, project tree, command palette, and output panels work together.",
+      "Volt IDE is a desktop developer environment built around making everyday project work easier. The public version focuses on the user-facing value: navigating projects, editing code, and improving development workflow with AI-assisted support.",
+    myRole:
+      "I designed and built the desktop app direction, UI structure, developer workflow, and product experience.",
     features: [
-      "Project workspace navigation with desktop-app thinking.",
-      "Monaco editor tabs, split editor direction, dirty state, autosave, and persisted sessions.",
-      "Command palette and quick-open workflow.",
-      "Global search with grouped results and click-to-jump behavior.",
-      "Desktop source control panel with status, stage/unstage, diff, commit, and Git command direction.",
-      "Integrated terminal/task runner direction for real developer work.",
-      "Output panel history and task execution flow.",
+      "Desktop-first developer workspace.",
+      "Project-focused interface.",
+      "AI-assisted workflow direction.",
+      "Developer productivity experiments.",
     ],
     screenshots: [
-      "Workspace shell",
-      "Explorer tree",
-      "Editor tabs",
-      "Command palette",
-      "Source control panel",
-      "Terminal output",
-      "Task runner",
-      "Problems/output panels",
+      {
+        label: "Dashboard",
+        src: "/project-screenshots/volt-ide/dashboard.png",
+      },
+      {
+        label: "Editor",
+        src: "/project-screenshots/volt-ide/editor.png",
+      },
+      {
+        label: "Login",
+        src: "/project-screenshots/volt-ide/login.png",
+      },
     ],
     learned: [
-      "Developer tools need boring reliability before fancy UI.",
-      "The hard part is not making an editor screen; it is making the loop feel fast and trustworthy.",
-      "Tauri/Rust architecture forces better thinking about desktop boundaries.",
-      "AI features are only useful when they connect to the actual workflow: files, commands, output, and iteration.",
+      "Developer tools need reliability before visual polish.",
+      "The best developer interfaces reduce context switching.",
+      "AI features are useful only when they support real workflow needs.",
     ],
     liveDemoUrl: "#",
     githubUrl: "https://github.com/Mohamed-Ruzaik",
@@ -197,85 +182,62 @@ const projects: readonly Project[] = [
   {
     title: "NeuroFit",
     slug: "neurofit",
-    type: "AI Fitness Coach",
-    status: "50% Built",
-    impact:
-      "Cross-device health and fitness companion direction with daily tracking and AI coaching.",
+    type: "AI Health & Fitness App",
+    status: "Product Concept",
+    impact: "AI-powered health tracking app concept for daily logs, reports, and coaching.",
     description:
-      "A personal fitness and health logging system for food, water, medicine, workouts, reminders, reports, and AI coaching synced through Supabase.",
-    stack: [
-      "Mobile app architecture",
-      "React Native direction",
-      "TypeScript",
-      "Supabase",
-      "AI coach direction",
-      "Shared app logic",
-      "Health tracking workflows",
-    ],
+      "AI-powered health tracking app concept for daily logs, reports, and coaching.",
+    stack: ["React Native", "TypeScript", "AI", "Mobile"],
     icon: "dumbbell",
     category: "Health Tech",
     scale: "Major System",
-    highlight: "Daily health tracking with AI coaching direction",
+    highlight: "Daily health tracking with AI-assisted support",
     whatItIs:
-      "NeuroFit is a cross-device health and fitness companion. The mobile side contains onboarding, auth, AI log, reporting, home, and settings flows. The project is designed around daily health tracking and an AI coach that can help users understand habits, logs, and progress.",
+      "NeuroFit is a mobile health and fitness project focused on making daily tracking easier. The public version keeps the product direction broad: logging, progress review, and AI-assisted coaching.",
+    myRole:
+      "I shaped the product flow, designed the app structure, and worked on the mobile UI direction.",
     features: [
-      "Mobile onboarding flow.",
-      "Sign-in/auth direction.",
-      "AI log screen for health and fitness entries.",
-      "Report screen for reviewing progress.",
-      "Settings and account-related flows.",
-      "Supabase-backed sync direction.",
-      "Future desktop companion structure.",
-      "Health logging direction for meals, water, medicine, workouts, reminders, and coaching.",
+      "Daily health and fitness logging.",
+      "Mobile onboarding and account flow.",
+      "Progress review experience.",
+      "AI-assisted health guidance concept.",
     ],
-    screenshots: ["Onboarding", "Sign-in", "Home dashboard", "AI log", "Reports", "Settings"],
+    screenshots: ["Onboarding", "Home dashboard", "Health log", "Reports", "Settings"],
     learned: [
-      "Health apps need consistency because users return daily.",
-      "AI coaching only works well when the app has clean logs and useful context.",
-      "Cross-device apps need shared structure early so the product does not split into separate disconnected experiences.",
-      "The difficult part is making the app feel helpful without becoming noisy or overwhelming.",
+      "Health apps must feel simple enough to use every day.",
+      "Sensitive personal data needs careful product thinking.",
+      "AI guidance works best when the app has a clean user flow.",
     ],
   },
   {
     title: "Wallet",
     slug: "wallet",
-    type: "Wallet, Catalog, Subscription, and Admin Platform",
-    status: "Functional App Direction",
-    impact:
-      "Customer-facing wallet flows and admin management panels for business operations.",
+    type: "Business Web Application",
+    status: "Functional Build",
+    impact: "A web app for customer-facing account flows and admin-side business management.",
     description:
-      "A React/Supabase business platform with user-facing wallet flows and admin management panels.",
-    stack: ["React", "Vite", "TypeScript", "Supabase", "React Router", "Tailwind", "Lucide icons"],
+      "A business web application with user account flows, wallet-style interactions, and admin management screens.",
+    stack: ["React", "TypeScript", "Supabase", "Tailwind", "Web App"],
     icon: "wallet",
     category: "Business Systems",
-    scale: "Business Systems",
-    highlight: "Wallet, catalog, subscription, and admin operations platform",
+    scale: "Business System",
+    highlight: "Customer and admin workflow management",
     whatItIs:
-      "Wallet is a web platform for managing users, products, projects, subscriptions, orders, topups, wallets, and access control. It has both customer-facing routes and admin-only routes, making it closer to a small SaaS/business operations system than a simple wallet page.",
+      "Wallet is a React/Supabase business dashboard that combines customer-facing account flows with role-based admin panels. The public version focuses on order, subscription, and wallet management at a broad level.",
+    myRole:
+      "I built the frontend structure, reusable UI patterns, route flow, and admin-facing screens.",
     features: [
-      "Public home, catalog, projects, and subscriptions pages.",
-      "Login and register pages.",
-      "Protected wallet, topups, and account routes.",
-      "Admin route guard.",
-      "Admin overview dashboard.",
-      "Admin pages for users, products, projects, wallets, subscriptions, access, orders, topups, and logs.",
-      "Reusable UI components like buttons, cards, modals, tables, badges, inputs, selects, and textareas.",
+      "Customer-facing account pages.",
+      "Wallet and account management flow.",
+      "Role-based admin panels.",
+      "Order and subscription management direction.",
+      "Reusable interface components.",
     ],
-    screenshots: [
-      "Home page",
-      "Catalog",
-      "Wallet page",
-      "Topups",
-      "Subscriptions",
-      "Admin overview",
-      "Admin data tables",
-      "Login/register",
-    ],
+    screenshots: ["Home page", "Account page", "Wallet screen", "Admin overview", "Data table"],
     learned: [
-      "Business systems need clear route protection and role separation.",
-      "Admin panels quickly become the real product because they control users, orders, logs, access, and money-related flows.",
-      "Reusable components make CRUD-heavy interfaces easier to maintain.",
-      "The challenge is keeping the interface simple while still covering many operational needs.",
+      "Business apps need clear separation between user and admin flows.",
+      "Reusable components make management screens easier to maintain.",
+      "Operational interfaces should be simple, predictable, and fast to scan.",
     ],
   },
   {
@@ -283,104 +245,75 @@ const projects: readonly Project[] = [
     slug: "homepage",
     type: "Custom Browser Start Page",
     status: "Static Web App",
-    impact:
-      "A personal browser start page for daily shortcuts, search, time, weather, and focus.",
+    impact: "A personal start page for search, quick links, time, weather, and daily focus.",
     description:
-      "A custom personal browser start page for daily shortcuts, search, time, weather, and focus.",
-    stack: ["HTML", "CSS", "JavaScript", "Static hosting", "GitHub Actions"],
+      "A custom browser start page for daily shortcuts, search, time, weather, and focus.",
+    stack: ["HTML", "CSS", "JavaScript", "Static Site"],
     icon: "home",
     category: "Personal Utility",
     scale: "Personal Utility",
     highlight: "Fast daily dashboard for common tools and websites",
     whatItIs:
-      "HomePage is a lightweight static dashboard made for personal daily use. It opens with a greeting, search bar, quick-launch tiles, clock/date card, weather area, and theme support. It is designed to reduce friction when opening commonly used tools and websites.",
+      "HomePage is a lightweight personal dashboard made to reduce repeated daily browsing steps. It keeps search, shortcuts, time, and useful glanceable information in one simple static page.",
+    myRole:
+      "I designed and built the page layout, quick access flow, and visual style.",
     features: [
-      "Google search input.",
-      "Quick launch tiles for Google, YouTube, Gemini, ChatGPT, WhatsApp, Canvas, OneDrive, Gmail, GitHub, and Outlook.",
-      "Dark/light mode direction.",
-      "Clock and date display.",
-      "Weather widget/status area.",
-      "Custom icons.",
-      "Static deployment workflow.",
+      "Search-first start page.",
+      "Quick launch shortcuts.",
+      "Clock and date area.",
+      "Simple weather/status section.",
+      "Lightweight static deployment.",
     ],
     screenshots: [
-      "Welcome dashboard",
-      "Search card",
-      "Quick launch grid",
-      "Clock/date card",
-      "Weather card",
-      "Theme toggle",
+      {
+        label: "Dashboard",
+        src: "/project-screenshots/homepage/dashboard.png",
+      },
     ],
     learned: [
-      "Small personal tools are powerful when they remove repeated daily steps.",
-      "A homepage should be fast, clear, and instantly useful.",
-      "Static apps are perfect for this kind of utility because they stay simple and reliable.",
-      "Good visual polish matters even for a private tool because it becomes part of the daily workspace.",
+      "Small tools are valuable when they remove repeated friction.",
+      "Personal utility apps still benefit from polished design.",
+      "Static projects are great for fast, reliable daily tools.",
     ],
   },
   {
     title: "MediConnect",
     slug: "mediconnect",
-    type: "Digital Healthcare Platform for Sri Lanka",
+    type: "Digital Healthcare Platform",
     status: "University Applied Project",
     impact:
-      "A secure web-based healthcare platform concept for connecting patients, doctors, hospitals, pharmacies, and government health authorities through one role-driven digital system.",
+      "A team healthcare platform concept for connecting patients, doctors, hospitals, pharmacies, and health administrators.",
     description:
-      "A secure web-based healthcare platform concept for connecting patients, doctors, hospitals, pharmacies, and government health authorities through one role-driven digital system.",
-    stack: [
-      "React.js / Next.js",
-      "FastAPI",
-      "PostgreSQL",
-      "Supabase",
-      "JWT Authentication",
-      "Figma",
-      "draw.io / Lucidchart",
-      "Docker",
-      "Gemini API",
-      "GitHub",
-      "Jira",
-    ],
+      "A role-driven healthcare web platform concept for modernizing hospital and patient workflows.",
+    stack: ["React / Next.js", "FastAPI", "PostgreSQL", "Supabase", "Figma"],
     icon: "medical",
     category: "Health Tech",
-    scale: "Team Project / University Applied Project",
+    scale: "Team Project",
     highlight: "Role-driven healthcare workflows for Sri Lanka",
     whatItIs:
-      "MediConnect is a team project designed to modernize healthcare workflows in Sri Lanka. The platform focuses on reducing paper-based hospital processes by bringing appointments, patient identity, medical records, e-prescriptions, pharmacy dispensing, consent, and government-level analytics into a centralized web portal.",
+      "MediConnect is a university applied team project focused on improving healthcare workflows through a web-based platform. The public version highlights the product idea, interface roles, and workflow thinking without exposing detailed system architecture.",
     myRole:
-      "I worked as the Frontend Developer / UI Engineer. The original project idea was mine, and I contributed heavily to shaping the product direction. I was mainly responsible for the frontend experience, user flows, role-based screens, reusable UI structure, and final interface polish. I also supported the team with system architecture thinking and backend workflow planning where needed.",
+      "I worked as the Frontend Developer / UI Engineer and contributed to the product direction, user flows, role-based screens, reusable UI structure, and final interface polish.",
     features: [
-      "Patient, doctor, hospital admin, pharmacy admin, and health ministry admin dashboards.",
-      "Secure role-based registration and login flow.",
-      "Digital Health ID direction with QR-based patient identification.",
-      "Appointment booking and doctor availability flow.",
-      "Patient consent handling before clinical access.",
-      "Electronic medical records and encounter history direction.",
-      "Digitally signed e-prescription lifecycle.",
-      "Pharmacy prescription lookup, dispensing, inventory, and billing direction.",
-      "AI patient chatbot and doctor summary assistant concept.",
-      "Government analytics dashboard for anonymized healthcare trends.",
-      "Audit logging and security-focused access boundaries.",
+      "Role-based healthcare platform concept.",
+      "Patient, doctor, hospital, pharmacy, and admin-facing screens.",
+      "Role-based registration and login flow.",
+      "Appointment and record management direction.",
+      "Healthcare dashboard and reporting concept.",
     ],
     screenshots: [
       "Patient dashboard",
       "Doctor dashboard",
       "Hospital admin dashboard",
       "Pharmacy dashboard",
-      "Health ministry dashboard",
-      "Appointment booking",
-      "Medical records",
-      "ePrescription flow",
-      "AI chatbot",
       "Analytics dashboard",
     ],
     teamContribution:
-      "This was a collaborative applied project with separate responsibilities across frontend, backend, database, security, DevOps, and QA. My main contribution was turning the project idea into clear user-facing workflows and building the frontend direction around five different healthcare roles. I also helped connect the frontend thinking with the system architecture and backend requirements so the UI was not just visual, but aligned with real data and role permissions.",
+      "This was a collaborative applied project. My main contribution was turning the project idea into clear user-facing workflows and building the frontend direction around multiple healthcare roles.",
     learned: [
-      "Healthcare systems are complex because every role has different access needs.",
-      "Frontend design becomes harder when the same platform must serve patients, doctors, hospitals, pharmacies, and government admins.",
-      "A good UI for healthcare must be simple, trustworthy, and careful with sensitive data.",
-      "Team projects need clear task ownership, but architecture decisions still need shared understanding.",
-      "The biggest challenge was balancing a large idea with the time limits of a university project while keeping the system realistic and presentable.",
+      "Healthcare systems need careful role and access thinking.",
+      "A simple UI matters when different users share one platform.",
+      "Team projects need clear ownership and shared product understanding.",
     ],
   },
   {
@@ -389,47 +322,31 @@ const projects: readonly Project[] = [
     type: "114 mm Newtonian Reflector Telescope",
     status: "Functional Build",
     impact:
-      "A fully functional 114 mm Newtonian reflector telescope designed and built from the ground up using PVC, wood, plumbing components, and commercially sourced optics.",
+      "A working reflector telescope built using custom mechanical design, hands-on fabrication, and optical alignment.",
     description:
-      "A fully functional 114 mm Newtonian reflector telescope designed and built from the ground up using PVC, wood, plumbing components, and commercially sourced optics. The project focused on creating a practical astronomical instrument through mechanical design, optical alignment, structural fabrication, and iterative testing.",
-    stack: [
-      "Optics",
-      "Mechanical Design",
-      "PVC Fabrication",
-      "Woodworking",
-      "Optical Alignment",
-      "Collimation",
-      "Alt-Azimuth Mount",
-      "Iterative Testing",
-    ],
+      "A functional 114 mm Newtonian reflector telescope built from the ground up using accessible materials and commercially sourced optics.",
+    stack: ["Optics", "Mechanical Design", "Woodworking", "PVC Fabrication", "Testing"],
     icon: "telescope",
     category: "Hardware",
     scale: "Hardware / Optical System",
     highlight: "Optical engineering meets hands-on problem solving",
     whatItIs:
-      "This telescope was designed and assembled as a complete custom-built optical system rather than a kit-based assembly. The mechanical structure, mounting system, tripod, focuser, and alignment mechanisms were independently designed, fabricated, tested, and refined to create a stable and usable astronomical telescope.\n\nThe goal was to build a working reflector telescope capable of observing celestial objects while learning the practical challenges of optics, structural design, alignment, and precision adjustment.",
+      "This telescope was designed and assembled as a complete custom-built optical system rather than a kit. The project involved the tube, mount, tripod, focuser, mirror alignment, and real observation testing.",
+    myRole:
+      "I designed, fabricated, assembled, aligned, and tested the full telescope system.",
     specifications: [
       "Aperture: 114 mm",
       "Focal Length: 900 mm",
       "Optical Design: Newtonian Reflector",
-      "Primary Mirror: Spherical Mirror",
-      "Eyepiece: 10 mm",
-      "Barlow Lens: 2x",
-      "Telescope Tube: PVC Construction",
-      "Mount: Custom Pipe-Based Alt-Azimuth Mount",
+      "Mount: Custom Alt-Azimuth Mount",
       "Tripod: Handmade Wooden Tripod",
-      "Focuser: Custom PVC Focuser",
     ],
     features: [
-      "Custom-built optical tube assembly using PVC materials.",
-      "Handmade wooden tripod designed for portability and stability.",
-      "Pipe-based mount allowing manual altitude and azimuth movement.",
-      "Custom-designed PVC focuser system for eyepiece positioning and focusing.",
-      "Collimatable primary and secondary mirror arrangement.",
-      "Modular construction allowing adjustments, upgrades, and maintenance.",
-      "Independent optical alignment and calibration process.",
-      "Field-tested during both daytime and nighttime observations.",
-      "Design process driven by physical prototyping and iterative problem solving.",
+      "Custom optical tube assembly.",
+      "Handmade tripod and mount.",
+      "Manual altitude and azimuth movement.",
+      "Custom focuser mechanism.",
+      "Field-tested observation setup.",
     ],
     screenshots: [
       "Daytime telescope assembly",
@@ -437,207 +354,72 @@ const projects: readonly Project[] = [
       "Optical tube structure",
       "Custom mount system",
       "Wooden tripod construction",
-      "PVC focuser mechanism",
-      "Mirror alignment system",
     ],
     learned: [
-      "Building a telescope involves much more than placing mirrors inside a tube. Mechanical rigidity, alignment accuracy, balance, and focusing precision directly affect image quality.",
-      "Small alignment errors in the optical path can significantly reduce performance, making collimation one of the most important aspects of the design.",
-      "Structural components must remain stable while allowing smooth movement and adjustment, requiring a balance between rigidity and usability.",
-      "The project demonstrated how engineering decisions in mechanics, optics, and user interaction combine to create a functional scientific instrument.",
-      "Perhaps the most valuable lesson was learning how to move from an idea in my head to a working physical system through experimentation, testing, iteration, and problem solving without relying on a pre-built design.",
-    ],
-  },
-  {
-    title: "Net Warden",
-    slug: "net-warden",
-    type: "Network Monitor / Controller",
-    status: "MVP Planning",
-    impact:
-      "Desktop tool for process-level network monitoring, blocking, taskbar speed display, and future throttling support.",
-    description:
-      "A Windows utility concept for tracking network usage by app, controlling access rules, showing speed indicators, and managing startup behavior.",
-    stack: ["Rust", "Electron", "React", "Windows APIs", "Networking"],
-    icon: "shield",
-    category: "System Tools",
-    scale: "Utility",
-    highlight: "Built because commercial tools are expensive",
-  },
-  {
-    title: "DreamFall_The Last Light",
-    slug: "dreamfall-the-last-light",
-    type: "Level-Based Unity Game",
-    status: "Unity Project",
-    impact:
-      "A Unity game project with a main menu and first playable level structure.",
-    description:
-      "A Unity game project with a main menu and first playable level structure.",
-    stack: ["Unity 2022.3", "C#", "Unity scenes", "Game design", "Build pipeline"],
-    icon: "game",
-    category: "Game Dev",
-    scale: "Game Dev",
-    highlight: "Level-based Unity project with menu and first stage flow",
-    whatItIs:
-      "DreamFall_The Last Light is a Unity 2022.3 project. The project contains a MainMenu scene and a Level01 scene, which suggests a level-based game structure with a playable first stage and menu flow. There is also a build folder, meaning the project has likely been run or exported before.",
-    features: [
-      "Main menu scene.",
-      "Level01 gameplay scene.",
-      "Unity build output folder.",
-      "Standard Unity project structure with Assets, Packages, ProjectSettings, Library, Logs, and Build.",
-      "Level-based game direction.",
-    ],
-    screenshots: ["Main menu", "Level01", "Gameplay environment", "Build/playtest output"],
-    learned: [
-      "A menu plus level scene is the foundation for turning an experiment into a playable game.",
-      "Unity projects need clean scene organization from the beginning.",
-      "Without project notes, the game idea becomes harder to recover later, so README-style documentation would help.",
-      "The next useful step would be defining the core gameplay loop clearly.",
+      "Mechanical rigidity and optical alignment directly affect image quality.",
+      "Small alignment errors can significantly reduce performance.",
+      "Physical prototyping teaches problems that drawings alone do not show.",
     ],
   },
   {
     title: "Realmwalker - The Forgotten Path",
     slug: "realmwalker-the-forgotten-path",
-    type: "Adventure / Level-Based Unity Game",
-    status: "Multi-Level Unity Project",
+    type: "2D Action-Platformer",
+    status: "Final Game Development Project",
     impact:
-      "A larger Unity game direction with menu flow and multiple level scenes.",
+      "A Unity 2D side-scrolling action-platformer with exploration, combat, narrative presentation, and progression-based objectives.",
     description:
-      "A Unity game project with a main menu and multiple levels, making it one of the larger game projects in the folder.",
-    stack: ["Unity 2022.3", "C#", "Unity scene workflow", "Level design", "Game progression", "Build pipeline"],
+      "A playable Unity 2D action-platformer about a lone traveler moving through forgotten realms while fighting guardians and searching for a way home.",
+    stack: ["Unity", "C#", "2D Platformer", "Game Design", "Level Design"],
     icon: "game",
     category: "Game Dev",
-    scale: "Game Dev",
-    highlight: "Multi-level Unity adventure direction",
+    scale: "University Game Project",
+    highlight: "Narrative-driven side-scroller with combat and progression systems",
     whatItIs:
-      "Realmwalker - The Forgotten Path is a Unity 2022.3 project with MainMenu, Level01, Level02, and Level03 scenes. The multiple level scenes suggest a broader adventure or progression-based game compared with the one-level prototypes. There are also backup/copy versions of this project in the Games folder, which suggests it has gone through multiple iterations.",
+      "Realmwalker - The Forgotten Path is a Unity 2D side-scrolling action-platformer developed as a final game development project. The game follows a mysterious traveler across three connected realms, combining exploration, combat, story presentation, save/load flow, level progression, objective overlays, and in-scene win/lose states.",
+    myRole:
+      "I completed the creative direction, gameplay design, Unity implementation, scene setup, asset integration, testing, and final project assembly.",
     features: [
-      "Main menu scene.",
-      "Three level scenes: Level01, Level02, Level03.",
-      "Backup/copy project versions available.",
-      "Unity build folder.",
-      "Standard Unity project structure.",
-      "Likely progression-based gameplay flow.",
-    ],
-    screenshots: ["Main menu", "Level01", "Level02", "Level03", "Gameplay progression", "Build/playtest output"],
-    learned: [
-      "Multi-level games need consistent progression logic and scene management.",
-      "Manual backup copies can protect work, but they become confusing if the latest version is not clearly marked.",
-      "A project with several levels needs stronger documentation than a single-scene prototype.",
-      "The biggest challenge is keeping gameplay consistent across all levels.",
-    ],
-  },
-  {
-    title: "ShadowRun_SignalCollapse",
-    slug: "shadowrun-signalcollapse",
-    type: "2D Side-Scroller Game",
-    status: "Playable Prototype",
-    impact:
-      "Gameplay-focused Unity side-scroller direction with combat, enemies, and a final objective.",
-    description:
-      "A cinematic 2D side-scrolling game prototype about fighting through corrupted lands toward a final objective.",
-    stack: ["Unity 2022.3", "C#", "2D Platformer", "Game Design", "Animation", "Combat systems"],
-    icon: "game",
-    category: "Game Dev",
-    scale: "Academic + Creative",
-    highlight: "Gameplay systems beyond basic coursework",
-    whatItIs:
-      "ShadowRun_SignalCollapse is a Unity 2022.3 project with MainMenu and Level01 scenes. Based on the portfolio project text, it is a 2D side-scroller with combat, projectile shooting, dash strike, enemies, menus, and final objective gameplay. It appears to be one of the more gameplay-focused Unity projects.",
-    features: [
-      "Main menu scene.",
-      "Level01 gameplay scene.",
-      "2D side-scrolling action direction.",
-      "Combat and projectile shooting direction.",
-      "Dash strike and enemy gameplay direction.",
-      "Final objective gameplay around destroying a Signal Tower.",
-      "Unity build folder and standard project structure.",
+      "2D side-scrolling movement, jumping, and double-jumping.",
+      "Combat-focused gameplay with melee attacks and dash-strike action.",
+      "Three connected levels with progression-based objectives.",
+      "Main menu, pause menu, save/load flow, and objective overlays.",
+      "Narrative intro sequences and ending presentation.",
     ],
     screenshots: [
-      "Main menu",
-      "Level01 gameplay",
-      "Player combat",
-      "Enemy encounters",
-      "Final objective direction",
+      {
+        label: "Gameplay video",
+        src: "/project-screenshots/realmwalker-the-forgotten-path/gameplay-compressed.mp4",
+        type: "video",
+        poster: "/project-screenshots/realmwalker-the-forgotten-path/main-menu.png",
+      },
+      {
+        label: "Main menu",
+        src: "/project-screenshots/realmwalker-the-forgotten-path/main-menu.png",
+      },
+      {
+        label: "Opening story",
+        src: "/project-screenshots/realmwalker-the-forgotten-path/opening-story.png",
+      },
+      {
+        label: "Desert realm",
+        src: "/project-screenshots/realmwalker-the-forgotten-path/desert.png",
+      },
+      {
+        label: "Middle of fight",
+        src: "/project-screenshots/realmwalker-the-forgotten-path/middle-of-fight.png",
+      },
+      {
+        label: "Boss fight",
+        src: "/project-screenshots/realmwalker-the-forgotten-path/boss-fight.png",
+      },
     ],
     learned: [
-      "A side-scroller becomes interesting when movement, combat, enemies, and objectives feel connected.",
-      "Gameplay feel matters more than visual complexity at prototype stage.",
-      "Menus, enemies, attacks, and objectives turn a basic level into a real playable loop.",
-      "The hardest part is making the controls and combat feel responsive enough to trust.",
+      "A playable game needs more than a level scene; menus, objectives, feedback, saving, and endings make the loop feel complete.",
+      "Combat and movement systems need to feel connected so the player understands when to explore, fight, and progress.",
+      "Game projects become easier to finish when narrative, mechanics, UI, and level flow are planned together.",
+      "Integrating third-party assets still requires strong creative direction, testing, and consistent visual presentation.",
     ],
-  },
-  {
-    title: "Mesh Forge 3D",
-    slug: "mesh-forge-3d",
-    type: "3D / CAD Tool Concept",
-    status: "Under Design",
-    impact:
-      "A 3D modeling and CAD-style creative tool concept currently being shaped at the product design level.",
-    description:
-      "A future-facing creative tool idea for 3D scene creation, object editing, export workflows, and design-focused modeling experiments. The project is currently under design, not yet implemented as a working AI system.",
-    stack: ["3D", "CAD", "FBX", "Scene Graph", "Creative Tools", "Product Design"],
-    icon: "boxes",
-    category: "Design Concept",
-    scale: "Design Stage",
-    highlight: "3D product concept under design",
-  },
-  {
-    title: "Operation Signal Blackout",
-    slug: "operation-signal-blackout",
-    type: "Mission-Based Unity Game",
-    status: "Custom Unity Project",
-    impact: "Mission-style Unity game direction with island battle and outdoor environment tooling.",
-    description:
-      "A Unity mission-style game project focused on action, environment presentation, and island battle gameplay direction.",
-    stack: [
-      "Unity 2022.3",
-      "C#",
-      "Game Systems",
-      "Environment Tooling",
-      "Vegetation Spawner",
-      "Level design",
-    ],
-    icon: "game",
-    category: "Game Dev",
-    scale: "Custom Project",
-    highlight: "Mission-based Unity gameplay direction",
-    whatItIs:
-      "Operation Signal Blackout is a Unity 2022.3 project with MainMenu and IslandBattle scenes. The project also references vegetation/environment tooling, which suggests an outdoor or island-based mission environment. It looks like a custom game project built around a specific battle or mission scenario.",
-    features: [
-      "Main menu scene.",
-      "IslandBattle gameplay scene.",
-      "Environment and vegetation tooling direction.",
-      "Unity build folder.",
-      "Mission-based gameplay structure.",
-      "Standard Unity Assets, Packages, ProjectSettings, and Build setup.",
-    ],
-    screenshots: [
-      "Main menu",
-      "Island battle scene",
-      "Outdoor environment",
-      "Mission gameplay",
-      "Build/playtest output",
-    ],
-    learned: [
-      "Mission-based games need clear objectives, pacing, and readable environments.",
-      "Environment detail can improve atmosphere, but it also adds performance and organization challenges.",
-      "Unity scene design becomes easier when gameplay, terrain, and objective flow are planned together.",
-      "The project shows direction beyond a basic scene because it has a named battle environment.",
-    ],
-  },
-  {
-    title: "Velocity Browser",
-    slug: "velocity-browser",
-    type: "Desktop Browser Product Concept",
-    status: "Phased Build Plan",
-    impact:
-      "A Chromium-style desktop browser concept with tabs, omnibar, history, bookmarks, downloads, settings, private mode, adblock, AI sidebar, and live translate roadmap.",
-    description:
-      "A browser product concept planned around Rust native services, an Electron shell, and a React + TypeScript UI. The roadmap is split into controlled V1, V2, and V3 phases so the app stays runnable after each step instead of becoming a giant half-built prototype.",
-    stack: ["Rust", "Electron", "React", "TypeScript", "Browser UI", "AI Sidebar"],
-    icon: "search",
-    category: "Browser Concept",
-    scale: "Concept Plan",
-    highlight: "Rust + Electron browser roadmap with AI sidebar",
   },
 ] as const;
 
@@ -649,15 +431,12 @@ const featuredProjectSlugs = [
   "mediconnect",
   "wallet",
   "homepage",
-  "dreamfall-the-last-light",
-  "operation-signal-blackout",
   "realmwalker-the-forgotten-path",
-  "shadowrun-signalcollapse",
 ] as const;
 
 const projectFilterOptions = [
   { label: "All", categories: ["All"] },
-  { label: "Applications", categories: ["Health Tech", "System Tools", "Browser Concept", "Business Systems", "Personal Utility"] },
+  { label: "Applications", categories: ["Health Tech", "Business Systems", "Personal Utility"] },
   { label: "Developer Tools", categories: ["Developer Tools"] },
   { label: "AI Tools", categories: ["AI Tools"] },
   { label: "Games", categories: ["Game Dev"] },
@@ -1146,13 +925,13 @@ function runSelfTests() {
   console.assert(getPageNames().includes("About"), "Self-test failed: pages must include About.");
   console.assert(getPageNames().includes("Contact"), "Self-test failed: pages must include Contact.");
   console.assert(getPageNames().includes("Projects"), "Self-test failed: pages must include Projects.");
-  console.assert(categories.includes("Browser Concept"), "Self-test failed: categories must include Browser Concept.");
+  console.assert(categories.includes("Business Systems"), "Self-test failed: categories must include Business Systems.");
   console.assert(getProjectFilterLabels().length === 6, "Self-test failed: filter labels must stay compact.");
   console.assert(filterProjects(projects, "rust", "All").some((p) => p.title === "Volt IDE"), "Self-test failed: Rust search should find Volt IDE.");
   console.assert(filterProjects(projects, "volt", "Developer Tools").some((p) => p.title === "Volt IDE"), "Self-test failed: Developer Tools filter should include Volt IDE.");
-  console.assert(filterProjects(projects, "signal", "Games").length === 2, "Self-test failed: Games group should include both game projects.");
+  console.assert(filterProjects(projects, "realmwalker", "Games").length === 1, "Self-test failed: Games group should include Realmwalker.");
   console.assert(getProjectBySlug("volt-ide")?.title === "Volt IDE", "Self-test failed: Volt detail slug should resolve.");
-  console.assert(getFeaturedProjects().length === 11, "Self-test failed: Projects page should show documented featured projects.");
+  console.assert(getFeaturedProjects().length === 8, "Self-test failed: Projects page should show documented featured projects.");
   console.assert(getEducationByLevel(education, "Degree").length === 1, "Self-test failed: Degree education should have one item.");
   console.assert(getEducationByLevel(education, "School").length === 2, "Self-test failed: School education should have two items.");
   console.assert(quickStats.length === 3, "Self-test failed: Home quick stats should have three items.");
@@ -1605,22 +1384,6 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
             <p className={`mt-3 text-lg font-bold ${accentClass.split(" ")[0]}`}>{project.type}</p>
             <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">{project.description}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a
-                href={project.liveDemoUrl || "#"}
-                target={project.liveDemoUrl && project.liveDemoUrl !== "#" ? "_blank" : undefined}
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-black !text-black transition hover:bg-zinc-200 [&_svg]:!text-black"
-              >
-                Live demo <Icon name="external" className="h-4 w-4" />
-              </a>
-              <a
-                href={project.githubUrl || githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.08] px-5 py-3 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/[0.14]"
-              >
-                <Icon name="github" className="h-4 w-4" /> GitHub
-              </a>
               <button
                 type="button"
                 onClick={onBack}
@@ -1707,13 +1470,42 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
 
       <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Screenshots</p>
-        <div className="mt-5 grid gap-4 md:grid-cols-4">
+        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {screenshots.map((screen) => (
-            <div key={screen} className="grid aspect-[4/3] place-items-center rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-center">
-              <div>
-                <Icon name={project.icon} className="mx-auto mb-3 h-6 w-6 text-cyan-300" />
-                <p className="text-sm font-bold text-zinc-200">{screen}</p>
-              </div>
+            <div
+              key={typeof screen === "string" ? screen : screen.src}
+              className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035]"
+            >
+              {typeof screen === "string" ? (
+                <div className="grid aspect-[4/3] place-items-center p-4 text-center">
+                  <div>
+                    <Icon name={project.icon} className="mx-auto mb-3 h-6 w-6 text-cyan-300" />
+                    <p className="text-sm font-bold text-zinc-200">{screen}</p>
+                  </div>
+                </div>
+              ) : (
+                <figure>
+                  {screen.type === "video" ? (
+                    <video
+                      src={screen.src}
+                      poster={screen.poster}
+                      controls
+                      preload="metadata"
+                      className="aspect-video w-full bg-black object-cover object-top"
+                    />
+                  ) : (
+                    <img
+                      src={screen.src}
+                      alt={`${project.title} - ${screen.label}`}
+                      loading="eager"
+                      className="aspect-video w-full object-cover object-top"
+                    />
+                  )}
+                  <figcaption className="border-t border-white/10 px-4 py-3 text-sm font-bold text-zinc-200">
+                    {screen.label}
+                  </figcaption>
+                </figure>
+              )}
             </div>
           ))}
         </div>
@@ -2064,6 +1856,24 @@ export default function App() {
   const [view, setView] = useState<ViewState>(() => parseViewFromLocation());
   const [theme, setTheme] = useState<ThemeMode>("dark");
   const activePage = view.page;
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    return () => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "auto";
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [view.page, view.projectSlug]);
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem("ruzaik-theme");
