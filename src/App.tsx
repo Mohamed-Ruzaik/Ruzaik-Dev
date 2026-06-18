@@ -312,6 +312,8 @@ const projects: readonly Project[] = [
       "The public PlantUML preview is useful for v1, but sensitive diagrams should eventually use a self-hosted renderer.",
       "The biggest challenge was keeping the project small while still proving frontend, cloud, Docker, CI, and deployment readiness.",
     ],
+    liveDemoUrl: "https://main.d1cuaijcmp3xop.amplifyapp.com/dashboard/",
+    githubUrl: "https://github.com/Mohamed-Ruzaik/Diagramify-Mini",
   },
   {
     title: "HomePage",
