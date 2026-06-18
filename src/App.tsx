@@ -74,6 +74,8 @@ const accentPalette = {
   "Business Systems": "text-lime-300 border-lime-300/20 bg-lime-300/[0.055]",
   "Browser Concept": "text-indigo-300 border-indigo-300/20 bg-indigo-300/[0.055]",
   "Personal Utility": "text-teal-300 border-teal-300/20 bg-teal-300/[0.055]",
+  "Full-Stack / DevOps": "text-blue-300 border-blue-300/20 bg-blue-300/[0.055]",
+  "Cloud / Frontend Tools": "text-sky-300 border-sky-300/20 bg-sky-300/[0.055]",
 } as const;
 
 const softProjectGlow = {
@@ -87,6 +89,8 @@ const softProjectGlow = {
   "Business Systems": "rgba(190,242,100,0.045)",
   "Browser Concept": "rgba(129,140,248,0.045)",
   "Personal Utility": "rgba(45,212,191,0.045)",
+  "Full-Stack / DevOps": "rgba(96,165,250,0.045)",
+  "Cloud / Frontend Tools": "rgba(56,189,248,0.045)",
 } as const;
 
 const projects: readonly Project[] = [
@@ -178,6 +182,136 @@ const projects: readonly Project[] = [
     ],
     liveDemoUrl: "#",
     githubUrl: "https://github.com/Mohamed-Ruzaik",
+  },
+  {
+    title: "CourseGrid LMS",
+    slug: "coursegrid-lms",
+    type: "Learning Management System",
+    status: "Internship-Ready Prototype",
+    impact:
+      "A Dockerized full-stack LMS prototype showing frontend, backend, database, DevOps, CI validation, Docker image publishing, and AWS deployment planning.",
+    description:
+      "A Dockerized full-stack Learning Management System prototype built around practical role-based workflows and deployment readiness.",
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "GitHub Actions",
+      "AWS deployment planning",
+    ],
+    icon: "briefcase",
+    category: "Full-Stack / DevOps",
+    scale: "Full-Stack / DevOps",
+    highlight: "Realistic LMS MVP with full local development stack",
+    whatItIs:
+      "CourseGrid LMS is a realistic MVP-style learning platform, not a full Canvas clone or university ERP. It is designed around three main roles: admin, instructor, and student. The project runs as a full local development stack using a React frontend, FastAPI backend, PostgreSQL database, and Docker Compose.",
+    myRole:
+      "I designed and built the full-stack prototype direction, including frontend role flows, backend API structure, database thinking, Dockerized development, CI validation, and deployment planning.",
+    features: [
+      "JWT login and registration.",
+      "Role-based dashboards for admin, instructor, and student users.",
+      "Admin approval flow for accounts and course access.",
+      "User activate and suspend controls.",
+      "Admin user management and course management.",
+      "Instructor course workspace and access request flow.",
+      "Student enrollment from My Courses.",
+      "Modules, lessons, and lesson completion tracking.",
+      "Assignments, text submissions, grading, and feedback.",
+      "Student grades grouped by course.",
+      "Announcements and profile/settings update.",
+      "Role-scoped analytics summaries.",
+      "System health page backed by health, readiness, and version endpoints.",
+    ],
+    screenshots: [
+      "Login/Register",
+      "Admin Dashboard",
+      "Admin Approvals",
+      "Admin Courses",
+      "Instructor Dashboard",
+      "Instructor Course Workspace",
+      "Instructor Submissions",
+      "Student Dashboard",
+      "Student My Courses",
+      "Student Assignments",
+      "Student Grades",
+      "System Health",
+    ],
+    learned: [
+      "Full-stack projects become stronger when the frontend, backend, database, and DevOps setup are designed together.",
+      "Role-based systems are more complex than simple CRUD apps because every action needs clear permission boundaries.",
+      "Docker Compose makes local development more professional because the frontend, backend, and database can run as one repeatable stack.",
+      "CI validation and Docker image publishing matter even before production deployment because they show whether the app can build, test, and ship consistently.",
+      "The biggest challenge was keeping the LMS realistic without making the first version too large or unfocused.",
+      "Current limitation: CourseGrid LMS is not deployed to production yet. AWS deployment is documented as a future path, and the current GitHub Actions setup focuses on validation and Docker image publishing.",
+    ],
+  },
+  {
+    title: "Diagramify Mini",
+    slug: "diagramify-mini",
+    type: "Mini Diagram Editor",
+    status: "Cloud-Ready Mini App",
+    impact:
+      "A cloud-ready mini diagram editor built with React, TypeScript, Vite, AWS Cognito, Docker, and GitHub Actions.",
+    description:
+      "A small production-minded diagram editor with authentication, protected routes, local persistence, Docker builds, CI, and AWS deployment planning.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "React Router",
+      "AWS Cognito",
+      "Docker",
+      "GitHub Actions",
+      "Tailwind CSS",
+      "PlantUML preview",
+    ],
+    icon: "window",
+    category: "Cloud / Frontend Tools",
+    scale: "Cloud / Frontend Tools",
+    highlight: "Compact frontend product with cloud-ready architecture",
+    whatItIs:
+      "Diagramify Mini is a small but production-minded diagram editor. The goal is not to build a full diagramming platform, but to show that a compact frontend product can still have authentication, protected routes, persistence boundaries, Dockerized builds, CI, cloud deployment planning, and cost-aware AWS architecture.",
+    myRole:
+      "I built the frontend app direction, authentication flow, protected dashboard experience, editor component structure, storage abstraction, Docker setup, CI workflow, and cloud deployment plan.",
+    features: [
+      "Email/password sign-up and sign-in with AWS Cognito.",
+      "Email verification code flow.",
+      "Protected dashboard route for authenticated users.",
+      "Mini diagram editor.",
+      "Locally persisted diagrams.",
+      "Diagram storage abstraction through DiagramStore.",
+      "Modular editor components for canvas, toolbar, layers, properties, and block rendering.",
+      "PlantUML preview using the public PlantUML server in v1.",
+      "Docker production build and Docker Compose support.",
+      "GitHub Actions build workflow.",
+      "AWS deployment plan for Amplify Hosting or S3 and CloudFront.",
+      "Future-ready persistence plan using API Gateway, Lambda, and DynamoDB.",
+    ],
+    screenshots: [
+      "Login page",
+      "Email confirmation flow",
+      "Protected dashboard",
+      "Diagram editor",
+      "Editor toolbar",
+      "Layer panel",
+      "Property panel",
+      "Diagram preview",
+      "QA login state",
+      "QA dashboard state",
+      "QA editor state",
+    ],
+    learned: [
+      "Small apps can still show serious architecture.",
+      "Authentication changes the shape of the app because routes, sessions, dashboard access, and logout behavior all need to work cleanly.",
+      "A storage abstraction is useful because the app can start with localStorage and later move to DynamoDB without rewriting the editor.",
+      "AWS frontend apps need cost awareness from the beginning.",
+      "The public PlantUML preview is useful for v1, but sensitive diagrams should eventually use a self-hosted renderer.",
+      "The biggest challenge was keeping the project small while still proving frontend, cloud, Docker, CI, and deployment readiness.",
+    ],
   },
   {
     title: "HomePage",
@@ -365,6 +499,8 @@ const projects: readonly Project[] = [
 const featuredProjectSlugs = [
   "custom-newtonian-reflector-telescope",
   "volt-ide",
+  "coursegrid-lms",
+  "diagramify-mini",
   "pixel-forge-studio",
   "mediconnect",
   "homepage",
@@ -373,9 +509,12 @@ const featuredProjectSlugs = [
 
 const projectFilterOptions = [
   { label: "All", categories: ["All"] },
-  { label: "Applications", categories: ["Health Tech", "Business Systems", "Personal Utility"] },
-  { label: "Developer Tools", categories: ["Developer Tools"] },
-  { label: "AI Tools", categories: ["AI Tools"] },
+  {
+    label: "Applications",
+    categories: ["Health Tech", "Business Systems", "Personal Utility", "Full-Stack / DevOps", "Cloud / Frontend Tools"],
+  },
+  { label: "Developer Tools", categories: ["Developer Tools", "Cloud / Frontend Tools"] },
+  { label: "AI Tools", categories: ["AI Tools", "Cloud / Frontend Tools"] },
   { label: "Games", categories: ["Game Dev"] },
   { label: "Hardware", categories: ["Hardware", "Design Concept"] },
 ];
@@ -427,6 +566,8 @@ const skillGroups = [
       "Debugging",
       "API Design",
       "Database Design",
+      "Role-Based Systems",
+      "Authentication Flows",
       "Technical Documentation",
     ],
   },
@@ -441,6 +582,18 @@ const skillGroups = [
       "UI/UX Thinking",
       "Workflow Design",
       "AI Integration",
+      "Cloud Deployment Planning",
+    ],
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: "rocket",
+    items: [
+      "Dockerized Development",
+      "CI Validation",
+      "Docker Image Publishing",
+      "AWS Deployment Planning",
+      "Cost-Aware Cloud Planning",
     ],
   },
   {
@@ -487,7 +640,17 @@ const techGroups = [
   {
     title: "Backend",
     icon: "boxes",
-    items: ["FastAPI", "Node.js", "PostgreSQL", "Supabase"],
+    items: ["FastAPI", "Node.js", "PostgreSQL", "Supabase", "SQLAlchemy", "Pydantic", "JWT Authentication"],
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: "rocket",
+    items: ["Docker", "Docker Compose", "GitHub Actions", "GitHub Container Registry", "AWS", "AWS Cognito"],
+  },
+  {
+    title: "Cloud Frontend",
+    icon: "window",
+    items: ["React Router", "Axios", "localStorage", "PlantUML preview", "Amplify Hosting", "S3 + CloudFront"],
   },
   {
     title: "Desktop",
@@ -512,7 +675,7 @@ const techGroups = [
 ] as const;
 
 const quickStats = [
-  { label: "Projects", value: "9+" },
+  { label: "Projects", value: "8+" },
   { label: "Core", value: "AI Tools" },
   { label: "Base", value: "Sri Lanka" },
 ] as const;
@@ -945,8 +1108,16 @@ function StackIcon({ name }: { name: string }) {
     return <Icon name="zap" className={`${baseClass} text-emerald-300`} />;
   }
 
+  if (normalized === "python") {
+    return <Icon name="terminal" className={`${baseClass} text-yellow-300`} />;
+  }
+
   if (normalized === "node.js") {
     return <Icon name="hexagon" className={`${baseClass} text-green-300`} />;
+  }
+
+  if (normalized === "sqlalchemy" || normalized === "pydantic") {
+    return <Icon name="database" className={`${baseClass} text-emerald-300`} />;
   }
 
   if (normalized === "postgresql") {
@@ -1031,6 +1202,22 @@ function StackIcon({ name }: { name: string }) {
 
   if (normalized.includes("docker")) {
     return <Icon name="boxes" className={`${baseClass} text-sky-300`} />;
+  }
+
+  if (normalized.includes("aws") || normalized.includes("amplify") || normalized.includes("cloudfront") || normalized.includes("lambda") || normalized.includes("dynamodb") || normalized.includes("s3")) {
+    return <Icon name="rocket" className={`${baseClass} text-orange-300`} />;
+  }
+
+  if (normalized.includes("cognito")) {
+    return <Icon name="shield" className={`${baseClass} text-emerald-300`} />;
+  }
+
+  if (normalized.includes("localstorage")) {
+    return <Icon name="database" className={`${baseClass} text-cyan-300`} />;
+  }
+
+  if (normalized.includes("plantuml")) {
+    return <Icon name="layers" className={`${baseClass} text-fuchsia-300`} />;
   }
 
   if (normalized.includes("github") || normalized.includes("jira")) {
