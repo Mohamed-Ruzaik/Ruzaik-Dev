@@ -248,6 +248,7 @@ const projects: readonly Project[] = [
       "The biggest challenge was keeping the LMS realistic without making the first version too large or unfocused.",
       "Current limitation: CourseGrid LMS is not deployed to production yet. AWS deployment is documented as a future path, and the current GitHub Actions setup focuses on validation and Docker image publishing.",
     ],
+    githubUrl: "https://github.com/Mohamed-Ruzaik/CourseGrid-LMS",
   },
   {
     title: "Diagramify Mini",
@@ -390,6 +391,7 @@ const projects: readonly Project[] = [
       "A simple UI matters when different users share one platform.",
       "Team projects need clear ownership and shared product understanding.",
     ],
+    githubUrl: "https://github.com/Mohamed-Ruzaik/MediConnect",
   },
   {
     title: "Custom Newtonian Reflector Telescope",
