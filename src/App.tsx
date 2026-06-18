@@ -180,67 +180,6 @@ const projects: readonly Project[] = [
     githubUrl: "https://github.com/Mohamed-Ruzaik",
   },
   {
-    title: "NeuroFit",
-    slug: "neurofit",
-    type: "AI Health & Fitness App",
-    status: "Product Concept",
-    impact: "AI-powered health tracking app concept for daily logs, reports, and coaching.",
-    description:
-      "AI-powered health tracking app concept for daily logs, reports, and coaching.",
-    stack: ["React Native", "TypeScript", "AI", "Mobile"],
-    icon: "dumbbell",
-    category: "Health Tech",
-    scale: "Major System",
-    highlight: "Daily health tracking with AI-assisted support",
-    whatItIs:
-      "NeuroFit is a mobile health and fitness project focused on making daily tracking easier. The public version keeps the product direction broad: logging, progress review, and AI-assisted coaching.",
-    myRole:
-      "I shaped the product flow, designed the app structure, and worked on the mobile UI direction.",
-    features: [
-      "Daily health and fitness logging.",
-      "Mobile onboarding and account flow.",
-      "Progress review experience.",
-      "AI-assisted health guidance concept.",
-    ],
-    screenshots: ["Onboarding", "Home dashboard", "Health log", "Reports", "Settings"],
-    learned: [
-      "Health apps must feel simple enough to use every day.",
-      "Sensitive personal data needs careful product thinking.",
-      "AI guidance works best when the app has a clean user flow.",
-    ],
-  },
-  {
-    title: "Wallet",
-    slug: "wallet",
-    type: "Business Web Application",
-    status: "Functional Build",
-    impact: "A web app for customer-facing account flows and admin-side business management.",
-    description:
-      "A business web application with user account flows, wallet-style interactions, and admin management screens.",
-    stack: ["React", "TypeScript", "Supabase", "Tailwind", "Web App"],
-    icon: "wallet",
-    category: "Business Systems",
-    scale: "Business System",
-    highlight: "Customer and admin workflow management",
-    whatItIs:
-      "Wallet is a React/Supabase business dashboard that combines customer-facing account flows with role-based admin panels. The public version focuses on order, subscription, and wallet management at a broad level.",
-    myRole:
-      "I built the frontend structure, reusable UI patterns, route flow, and admin-facing screens.",
-    features: [
-      "Customer-facing account pages.",
-      "Wallet and account management flow.",
-      "Role-based admin panels.",
-      "Order and subscription management direction.",
-      "Reusable interface components.",
-    ],
-    screenshots: ["Home page", "Account page", "Wallet screen", "Admin overview", "Data table"],
-    learned: [
-      "Business apps need clear separation between user and admin flows.",
-      "Reusable components make management screens easier to maintain.",
-      "Operational interfaces should be simple, predictable, and fast to scan.",
-    ],
-  },
-  {
     title: "HomePage",
     slug: "homepage",
     type: "Custom Browser Start Page",
@@ -427,9 +366,7 @@ const featuredProjectSlugs = [
   "custom-newtonian-reflector-telescope",
   "volt-ide",
   "pixel-forge-studio",
-  "neurofit",
   "mediconnect",
-  "wallet",
   "homepage",
   "realmwalker-the-forgotten-path",
 ] as const;
