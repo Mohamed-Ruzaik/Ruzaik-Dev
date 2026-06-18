@@ -391,6 +391,7 @@ const projects: readonly Project[] = [
       "A simple UI matters when different users share one platform.",
       "Team projects need clear ownership and shared product understanding.",
     ],
+    liveDemoUrl: "https://mediconnect-ewoq.onrender.com/login",
     githubUrl: "https://github.com/Mohamed-Ruzaik/MediConnect",
   },
   {
@@ -1512,6 +1513,28 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
             <p className={`mt-3 text-lg font-bold ${accentClass.split(" ")[0]}`}>{project.type}</p>
             <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">{project.description}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {project.liveDemoUrl ? (
+                <a
+                  href={project.liveDemoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-black !text-black transition hover:bg-zinc-200 [&_svg]:!text-black"
+                >
+                  <Icon name="external" className="h-4 w-4" />
+                  Live Demo
+                </a>
+              ) : null}
+              {project.githubUrl ? (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.08] px-5 py-3 text-sm font-bold text-cyan-100 transition hover:bg-cyan-300/[0.14]"
+                >
+                  <Icon name="github" className="h-4 w-4" />
+                  GitHub Repo
+                </a>
+              ) : null}
               <button
                 type="button"
                 onClick={onBack}
