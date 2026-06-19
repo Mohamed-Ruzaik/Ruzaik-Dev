@@ -234,7 +234,7 @@ const projects: readonly Project[] = [
       },
       {
         label: "Editor shell",
-        src: "/project-screenshots/voltcode-mini/editor.png",
+        src: "/project-screenshots/voltcode-mini/voltcode-editor.png",
       },
       {
         label: "Search panel",
