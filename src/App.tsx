@@ -382,6 +382,10 @@ const projects: readonly Project[] = [
         src: "/project-screenshots/diagramify-mini/confirmation.png",
       },
       {
+        label: "Protected dashboard",
+        src: "/project-screenshots/diagramify-mini/dashboard.png",
+      },
+      {
         label: "Diagram editor",
         src: "/project-screenshots/diagramify-mini/editor.png",
       },
