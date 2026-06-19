@@ -180,8 +180,87 @@ const projects: readonly Project[] = [
       "The best developer interfaces reduce context switching.",
       "AI features are useful only when they support real workflow needs.",
     ],
-    liveDemoUrl: "#",
-    githubUrl: "https://github.com/Mohamed-Ruzaik",
+  },
+  {
+    title: "VoltCode Mini",
+    slug: "voltcode-mini",
+    type: "Mini IDE Shell",
+    status: "Active Developer Tool",
+    impact:
+      "A compact IDE-style workspace app with dashboard launching, file editing, search, command running, AI assistance, Git workflow controls, and web/desktop host support.",
+    description:
+      "A mini developer workspace built from the Volt direction, focused on practical editing, project navigation, side panels, and host-backed IDE workflows.",
+    stack: [
+      "Tauri",
+      "Rust",
+      "React",
+      "TypeScript",
+      "Monaco",
+      "Vite",
+      "Terminal sessions",
+      "Gemini API",
+      "Git",
+      "localStorage",
+    ],
+    icon: "terminal",
+    category: "Developer Tools",
+    scale: "Mini App / Developer Tool",
+    highlight: "A focused IDE shell with desktop and web host modes",
+    whatItIs:
+      "VoltCode Mini is a compact IDE shell built as a smaller, more focused developer tool. It keeps the core workflow around launching workspaces, opening files, editing code, saving changes, searching across files, running commands, using an AI panel, and managing Git-oriented workspace actions. The project supports a real desktop host through Tauri/Rust and a web host with an in-memory sample workspace for browser testing.",
+    myRole:
+      "I built the mini IDE direction, shared UI shell, dashboard/workspace launcher, editor workflow, side panels, host abstractions, and desktop/web host behavior.",
+    features: [
+      "Dashboard workspace launcher with recent workspace support.",
+      "Open, rename, and remove recent workspaces.",
+      "Editor shell with title bar, tabs, Monaco editor, file opening, editing, and save flow.",
+      "Single editor and split editor mode direction.",
+      "Quick open modal, refresh workspace action, status bar, and collapsible sidebar.",
+      "Explorer panel with folder tree, expand/collapse behavior, file icons, and file opening.",
+      "Search panel with file search, case-sensitive mode, regex mode, and jump/open result behavior.",
+      "Run panel with command input, runtime settings UI, command output, and kill active run direction.",
+      "AI panel with local chat history, recent chats, attachments, file/screenshot paste/drop support, and stop action.",
+      "AI settings with API key, model textbox, instructions, and local settings storage.",
+      "AI chat through Gemini REST calls, chat error handling, and local chat persistence.",
+      "AI edit proposal flow where suggested full-file edits can be applied or rejected.",
+      "Git panel with Git command box, pull, push, commit and push actions, output, and per-workspace history.",
+      "Desktop host functions for workspace picking, file operations, terminal sessions, URL opening, and terminal output events.",
+      "Web host with seeded sample workspace, in-memory files/folders, recent workspace storage, and no real filesystem/process access.",
+    ],
+    screenshots: [
+      {
+        label: "Workspace launcher",
+        src: "/project-screenshots/voltcode-mini/dashboard.png",
+      },
+      {
+        label: "Editor shell",
+        src: "/project-screenshots/voltcode-mini/editor.png",
+      },
+      {
+        label: "Search panel",
+        src: "/project-screenshots/voltcode-mini/search-panel.png",
+      },
+      {
+        label: "Run panel",
+        src: "/project-screenshots/voltcode-mini/run-panel.png",
+      },
+      {
+        label: "AI panel",
+        src: "/project-screenshots/voltcode-mini/ai-panel.png",
+      },
+      {
+        label: "Git panel",
+        src: "/project-screenshots/voltcode-mini/git-panel.png",
+      },
+    ],
+    learned: [
+      "A smaller IDE shell is easier to reason about when the workspace loop is kept focused.",
+      "Desktop and web hosts need different capabilities, so host boundaries must be explicit.",
+      "File editing, command running, AI assistance, and Git actions become more useful when they share workspace context.",
+      "A browser-safe web host is useful for demos because it avoids real filesystem or process access.",
+      "The next cleanup path is removing old direct source-control API leftovers and keeping Git flow routed through the current workspace command model.",
+    ],
+    githubUrl: "https://github.com/Mohamed-Ruzaik/VoltCode-Mini",
   },
   {
     title: "CourseGrid LMS",
@@ -504,6 +583,7 @@ const projects: readonly Project[] = [
 const featuredProjectSlugs = [
   "custom-newtonian-reflector-telescope",
   "volt-ide",
+  "voltcode-mini",
   "coursegrid-lms",
   "diagramify-mini",
   "pixel-forge-studio",
@@ -610,6 +690,9 @@ const skillGroups = [
       "Mobile App Development",
       "Developer Tool Development",
       "Game Development",
+      "Developer Workspace UX",
+      "File System Tooling",
+      "Terminal Integration",
     ],
   },
   {
@@ -660,7 +743,12 @@ const techGroups = [
   {
     title: "Desktop",
     icon: "terminal",
-    items: ["Tauri", "Electron", "Rust", "Visual Basic"],
+    items: ["Tauri", "Electron", "Rust", "Visual Basic", "Terminal Sessions"],
+  },
+  {
+    title: "Developer Tooling",
+    icon: "terminal",
+    items: ["Monaco", "Git", "Gemini API", "localStorage", "Web Host", "Desktop Host"],
   },
   {
     title: "Mobile",
@@ -680,7 +768,7 @@ const techGroups = [
 ] as const;
 
 const quickStats = [
-  { label: "Projects", value: "8+" },
+  { label: "Projects", value: "9+" },
   { label: "Core", value: "AI Tools" },
   { label: "Base", value: "Sri Lanka" },
 ] as const;
@@ -1137,6 +1225,10 @@ function StackIcon({ name }: { name: string }) {
     return <Icon name="briefcase" className={`${baseClass} text-indigo-300`} />;
   }
 
+  if (normalized.includes("terminal")) {
+    return <Icon name="terminal" className={`${baseClass} text-emerald-300`} />;
+  }
+
   if (normalized === "node api") {
     return <Icon name="boxes" className={`${baseClass} text-emerald-300`} />;
   }
@@ -1227,6 +1319,14 @@ function StackIcon({ name }: { name: string }) {
 
   if (normalized.includes("github") || normalized.includes("jira")) {
     return <Icon name="briefcase" className={`${baseClass} text-zinc-200`} />;
+  }
+
+  if (normalized === "git") {
+    return <Icon name="github" className={`${baseClass} text-emerald-300`} />;
+  }
+
+  if (normalized.includes("web host") || normalized.includes("desktop host")) {
+    return <Icon name="window" className={`${baseClass} text-cyan-300`} />;
   }
 
   if (normalized === "html" || normalized === "css" || normalized === "javascript") {
