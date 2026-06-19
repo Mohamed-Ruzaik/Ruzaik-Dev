@@ -516,6 +516,11 @@ const projects: readonly Project[] = [
       "Healthcare dashboard and reporting concept.",
     ],
     screenshots: [
+      {
+        label: "MediConnect demo",
+        src: "/project-screenshots/mediconnect/mediconnect-demo.mp4",
+        type: "video",
+      },
       "Patient dashboard",
       "Doctor dashboard",
       "Hospital admin dashboard",
