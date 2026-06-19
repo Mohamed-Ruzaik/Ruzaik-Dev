@@ -57,7 +57,6 @@ const hiddenScrollbar =
 const whatsappNumber = "94762334979";
 const githubUrl = "https://github.com/Mohamed-Ruzaik";
 const linkedinUrl = "https://www.linkedin.com/in/mohamedruzaik/";
-const cvUrl = "/Mohamed-Ruzaik-CV.pdf";
 const bodyFont =
   "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const headingFont =
@@ -1982,13 +1981,6 @@ function AboutPage() {
               <p>My current focus is developer tools, AI-assisted applications, desktop software, and systems that solve practical problems.</p>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href={cvUrl}
-                download
-                className={`${contactButtonBase} border border-white/10 bg-white !text-black hover:bg-zinc-200 [&_svg]:!text-black`}
-              >
-                <Icon name="briefcase" className="h-4 w-4" /> Download CV
-              </a>
               <a
                 href={githubUrl}
                 target="_blank"
