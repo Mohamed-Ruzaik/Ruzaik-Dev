@@ -583,14 +583,14 @@ const projects: readonly Project[] = [
 
 const featuredProjectSlugs = [
   "custom-newtonian-reflector-telescope",
-  "volt-ide",
   "voltcode-mini",
   "coursegrid-lms",
   "diagramify-mini",
-  "pixel-forge-studio",
   "mediconnect",
-  "homepage",
   "realmwalker-the-forgotten-path",
+  "homepage",
+  "pixel-forge-studio",
+  "volt-ide",
 ] as const;
 
 const projectFilterOptions = [
