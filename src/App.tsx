@@ -2058,7 +2058,7 @@ function AboutPage() {
 
 function ContactPage() {
   const contactButtonBase =
-    "inline-flex min-w-[150px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-colors";
+    "inline-flex min-w-0 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-bold transition-colors sm:min-w-[150px] sm:px-5";
 
   const contactMethods = [
     {
@@ -2093,17 +2093,17 @@ function ContactPage() {
 
   return (
     <Page>
-      <div className={`wide-content mx-auto overflow-hidden rounded-[2rem] ${glassStrong}`}>
-        <div className="grid gap-8 p-8 md:grid-cols-[0.95fr_1.05fr] md:p-12">
+      <div className={`wide-content mx-auto max-w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] ${glassStrong}`}>
+        <div className="grid gap-7 p-5 sm:p-8 md:grid-cols-[0.95fr_1.05fr] md:p-12">
           <div className="flex flex-col justify-center">
-            <p className="section-eyebrow text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Contact</p>
-            <h2 style={{ fontFamily: headingFont }} className="mt-4 text-3xl font-black text-white md:text-5xl">
+            <p className="section-eyebrow text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300 sm:text-sm">Contact</p>
+            <h2 style={{ fontFamily: headingFont }} className="mt-4 text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl">
               Let’s build something useful.
             </h2>
-            <p className="mt-5 text-base leading-8 text-zinc-400">
+            <p className="mt-5 max-w-prose text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
               Open to software engineering opportunities, practical product builds, AI tooling work, and collaborations where the goal is a real usable system.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-7 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
               {contactMethods.map((method) => (
                 <a
                   key={method.label}
@@ -2126,16 +2126,16 @@ function ContactPage() {
                 href={method.href}
                 target={method.href.startsWith("http") ? "_blank" : undefined}
                 rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-                className={`contact-card group rounded-[1.25rem] p-4 transition hover:-translate-y-1 sm:p-5 ${projectGlassSoft}`}
+                className={`contact-card group rounded-[1.15rem] p-3.5 transition hover:-translate-y-1 sm:rounded-[1.25rem] sm:p-5 ${projectGlassSoft}`}
               >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex min-w-0 items-center gap-4">
-                    <div className="contact-icon-box grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-cyan-300/20 bg-cyan-300/[0.08] text-cyan-200 sm:h-12 sm:w-12">
+                <div className="flex items-center justify-between gap-3 sm:gap-4">
+                  <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+                    <div className="contact-icon-box grid h-10 w-10 shrink-0 place-items-center rounded-[1rem] border border-cyan-300/20 bg-cyan-300/[0.08] text-cyan-200 sm:h-12 sm:w-12 sm:rounded-2xl">
                       <Icon name={method.icon} className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-sm font-black text-white">{method.label}</p>
-                      <p className="mt-1 truncate text-sm text-zinc-400">{method.value}</p>
+                      <p className="mt-1 truncate text-xs text-zinc-400 sm:text-sm">{method.value}</p>
                     </div>
                   </div>
                   <Icon name="external" className="contact-external h-4 w-4 shrink-0 text-zinc-500 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-cyan-300" />
