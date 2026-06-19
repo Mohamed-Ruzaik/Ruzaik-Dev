@@ -373,17 +373,18 @@ const projects: readonly Project[] = [
       "Future-ready persistence plan using API Gateway, Lambda, and DynamoDB.",
     ],
     screenshots: [
-      "Login page",
-      "Email confirmation flow",
-      "Protected dashboard",
-      "Diagram editor",
-      "Editor toolbar",
-      "Layer panel",
-      "Property panel",
-      "Diagram preview",
-      "QA login state",
-      "QA dashboard state",
-      "QA editor state",
+      {
+        label: "Login page",
+        src: "/project-screenshots/diagramify-mini/login.png",
+      },
+      {
+        label: "Email confirmation",
+        src: "/project-screenshots/diagramify-mini/confirmation.png",
+      },
+      {
+        label: "Diagram editor",
+        src: "/project-screenshots/diagramify-mini/editor.png",
+      },
     ],
     learned: [
       "Small apps can still show serious architecture.",
