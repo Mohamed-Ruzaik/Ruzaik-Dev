@@ -430,6 +430,7 @@ const projects: readonly Project[] = [
       "Personal utility apps still benefit from polished design.",
       "Static projects are great for fast, reliable daily tools.",
     ],
+    liveDemoUrl: "https://mohamed-ruzaik.github.io/HomePage/",
   },
   {
     title: "MediConnect",
