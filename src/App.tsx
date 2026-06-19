@@ -307,18 +307,70 @@ const projects: readonly Project[] = [
       "System health page backed by health, readiness, and version endpoints.",
     ],
     screenshots: [
-      "Login/Register",
-      "Admin Dashboard",
-      "Admin Approvals",
-      "Admin Courses",
-      "Instructor Dashboard",
-      "Instructor Course Workspace",
-      "Instructor Submissions",
-      "Student Dashboard",
-      "Student My Courses",
-      "Student Assignments",
-      "Student Grades",
-      "System Health",
+      {
+        label: "Login",
+        src: "/project-screenshots/coursegrid-lms/login-coursegridlms.png",
+      },
+      {
+        label: "Register",
+        src: "/project-screenshots/coursegrid-lms/register-coursegridlms.png",
+      },
+      {
+        label: "Admin dashboard",
+        src: "/project-screenshots/coursegrid-lms/admin/a - dashboard.png",
+      },
+      {
+        label: "Admin users",
+        src: "/project-screenshots/coursegrid-lms/admin/a-users.png",
+      },
+      {
+        label: "Admin approvals",
+        src: "/project-screenshots/coursegrid-lms/admin/a-approvals.png",
+      },
+      {
+        label: "Admin courses",
+        src: "/project-screenshots/coursegrid-lms/admin/a - courses.png",
+      },
+      {
+        label: "Admin settings",
+        src: "/project-screenshots/coursegrid-lms/admin/a - settings.png",
+      },
+      {
+        label: "Instructor dashboard",
+        src: "/project-screenshots/coursegrid-lms/instrutor/i - dashboard.png",
+      },
+      {
+        label: "Instructor courses",
+        src: "/project-screenshots/coursegrid-lms/instrutor/i-coures.png",
+      },
+      {
+        label: "Instructor submissions",
+        src: "/project-screenshots/coursegrid-lms/instrutor/i-submision.png",
+      },
+      {
+        label: "Instructor settings",
+        src: "/project-screenshots/coursegrid-lms/instrutor/i-settings.png",
+      },
+      {
+        label: "Student dashboard",
+        src: "/project-screenshots/coursegrid-lms/students/s-dashboard.png",
+      },
+      {
+        label: "Student my course",
+        src: "/project-screenshots/coursegrid-lms/students/s-mycourse.png",
+      },
+      {
+        label: "Student assignments",
+        src: "/project-screenshots/coursegrid-lms/students/s-assignmnets.png",
+      },
+      {
+        label: "Student grades",
+        src: "/project-screenshots/coursegrid-lms/students/s-grades.png",
+      },
+      {
+        label: "Student settings",
+        src: "/project-screenshots/coursegrid-lms/students/s-settings.png",
+      },
     ],
     learned: [
       "Full-stack projects become stronger when the frontend, backend, database, and DevOps setup are designed together.",
