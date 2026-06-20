@@ -651,8 +651,6 @@ const featuredProjectSlugs = [
   "mediconnect",
   "realmwalker-the-forgotten-path",
   "homepage",
-  "pixel-forge-studio",
-  "volt-ide",
 ] as const;
 
 const projectFilterOptions = [
@@ -1187,7 +1185,7 @@ function runSelfTests() {
   console.assert(filterProjects(projects, "volt", "Developer Tools").some((p) => p.title === "Volt IDE"), "Self-test failed: Developer Tools filter should include Volt IDE.");
   console.assert(filterProjects(projects, "realmwalker", "Games").length === 1, "Self-test failed: Games group should include Realmwalker.");
   console.assert(getProjectBySlug("volt-ide")?.title === "Volt IDE", "Self-test failed: Volt detail slug should resolve.");
-  console.assert(getFeaturedProjects().length === 8, "Self-test failed: Projects page should show documented featured projects.");
+  console.assert(getFeaturedProjects().length === 7, "Self-test failed: Projects page should show documented featured projects.");
   console.assert(getEducationByLevel(education, "Degree").length === 1, "Self-test failed: Degree education should have one item.");
   console.assert(getEducationByLevel(education, "School").length === 2, "Self-test failed: School education should have two items.");
   console.assert(quickStats.length === 3, "Self-test failed: Home quick stats should have three items.");
