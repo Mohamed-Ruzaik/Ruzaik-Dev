@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const pages = ["Home", "Projects", "Skills", "About", "Contact"];
@@ -1649,7 +1649,6 @@ function ProjectsPage({ onOpenProject }: { onOpenProject: (slug: string) => void
 function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void }) {
   const project = getProjectBySlug(slug);
   const [activeMedia, setActiveMedia] = useState<Exclude<ProjectScreenshot, string> | null>(null);
-  const screenshotsSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!activeMedia) return;
@@ -1663,19 +1662,6 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeMedia]);
-
-  useEffect(() => {
-    if (!project) return;
-
-    const timer = window.setTimeout(() => {
-      screenshotsSectionRef.current?.scrollIntoView({
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-        block: "start",
-      });
-    }, 650);
-
-    return () => window.clearTimeout(timer);
-  }, [project, slug]);
 
   if (!project) {
     return (
@@ -1823,7 +1809,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
         </div>
       </section>
 
-      <section ref={screenshotsSectionRef} className={`scroll-mt-24 mt-6 rounded-[1.5rem] p-6 ${glass}`}>
+      <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Screenshots</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {screenshots.map((screen) => (
