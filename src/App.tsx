@@ -569,11 +569,26 @@ const projects: readonly Project[] = [
       "Field-tested observation setup.",
     ],
     screenshots: [
-      "Daytime telescope assembly",
-      "Night observation setup",
-      "Optical tube structure",
-      "Custom mount system",
-      "Wooden tripod construction",
+      {
+        label: "Telescope assembly",
+        src: "/project-screenshots/telescope/telescope.jpeg",
+      },
+      {
+        label: "Primary objective",
+        src: "/project-screenshots/telescope/primary-objective.jpeg",
+      },
+      {
+        label: "Secondary diagonal",
+        src: "/project-screenshots/telescope/secondary-diagonal.jpeg",
+      },
+      {
+        label: "Primary collimation",
+        src: "/project-screenshots/telescope/collimate-primary.jpeg",
+      },
+      {
+        label: "Secondary collimation",
+        src: "/project-screenshots/telescope/collimate-secondary.jpeg",
+      },
     ],
     learned: [
       "Mechanical rigidity and optical alignment directly affect image quality.",
