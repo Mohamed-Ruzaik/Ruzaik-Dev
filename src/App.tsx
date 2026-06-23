@@ -1648,6 +1648,20 @@ function ProjectsPage({ onOpenProject }: { onOpenProject: (slug: string) => void
 
 function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void }) {
   const project = getProjectBySlug(slug);
+  const [activeMedia, setActiveMedia] = useState<Exclude<ProjectScreenshot, string> | null>(null);
+
+  useEffect(() => {
+    if (!activeMedia) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveMedia(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeMedia]);
 
   if (!project) {
     return (
@@ -1812,22 +1826,28 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
                 </div>
               ) : (
                 <figure>
-                  {screen.type === "video" ? (
-                    <video
-                      src={screen.src}
-                      poster={screen.poster}
-                      controls
-                      preload="metadata"
-                      className="aspect-video w-full bg-black object-cover object-top"
-                    />
-                  ) : (
-                    <img
-                      src={screen.src}
-                      alt={`${project.title} - ${screen.label}`}
-                      loading="eager"
-                      className="aspect-video w-full object-cover object-top"
-                    />
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => setActiveMedia(screen)}
+                    className="group/media block w-full cursor-zoom-in text-left"
+                    aria-label={`Open ${screen.label}`}
+                  >
+                    {screen.type === "video" ? (
+                      <video
+                        src={screen.src}
+                        poster={screen.poster}
+                        preload="metadata"
+                        className="aspect-video w-full bg-black object-cover object-top transition duration-300 group-hover/media:scale-[1.02]"
+                      />
+                    ) : (
+                      <img
+                        src={screen.src}
+                        alt={`${project.title} - ${screen.label}`}
+                        loading="eager"
+                        className="aspect-video w-full object-cover object-top transition duration-300 group-hover/media:scale-[1.02]"
+                      />
+                    )}
+                  </button>
                   <figcaption className="border-t border-white/10 px-4 py-3 text-sm font-bold text-zinc-200">
                     {screen.label}
                   </figcaption>
@@ -1837,6 +1857,59 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
           ))}
         </div>
       </section>
+
+      <AnimatePresence>
+        {activeMedia && (
+          <motion.div
+            className="fixed inset-0 z-50 grid place-items-center bg-black/82 p-4 backdrop-blur-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeMedia.label}
+            onClick={() => setActiveMedia(null)}
+          >
+            <motion.div
+              className="relative w-full max-w-6xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#050814] shadow-[0_30px_90px_rgba(0,0,0,0.65)]"
+              initial={{ opacity: 0, scale: 0.96, y: 18 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 18 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-5">
+                <p className="min-w-0 truncate text-sm font-black text-white">{activeMedia.label}</p>
+                <button
+                  type="button"
+                  onClick={() => setActiveMedia(null)}
+                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition hover:bg-white/[0.08] hover:text-white"
+                  aria-label="Close media preview"
+                >
+                  <span className="text-lg leading-none">x</span>
+                </button>
+              </div>
+              <div className="bg-black">
+                {activeMedia.type === "video" ? (
+                  <video
+                    src={activeMedia.src}
+                    poster={activeMedia.poster}
+                    controls
+                    autoPlay
+                    className="max-h-[78vh] w-full object-contain"
+                  />
+                ) : (
+                  <img
+                    src={activeMedia.src}
+                    alt={`${project.title} - ${activeMedia.label}`}
+                    className="max-h-[78vh] w-full object-contain"
+                  />
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {project.teamContribution && (
         <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
