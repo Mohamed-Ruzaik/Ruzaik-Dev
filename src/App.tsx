@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const pages = ["Home", "Projects", "Skills", "About", "Contact"];
@@ -1649,6 +1649,7 @@ function ProjectsPage({ onOpenProject }: { onOpenProject: (slug: string) => void
 function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void }) {
   const project = getProjectBySlug(slug);
   const [activeMedia, setActiveMedia] = useState<Exclude<ProjectScreenshot, string> | null>(null);
+  const screenshotsSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!activeMedia) return;
@@ -1691,6 +1692,13 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
     "Design the workflow before adding extra screens.",
     "Honest project documentation matters as much as polish.",
   ];
+  const openMediaPreview = (screen: Exclude<ProjectScreenshot, string>) => {
+    screenshotsSectionRef.current?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start",
+    });
+    setActiveMedia(screen);
+  };
 
   return (
     <Page>
@@ -1809,7 +1817,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
         </div>
       </section>
 
-      <section className={`mt-6 rounded-[1.5rem] p-6 ${glass}`}>
+      <section ref={screenshotsSectionRef} className={`scroll-mt-24 mt-6 rounded-[1.5rem] p-6 ${glass}`}>
         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Screenshots</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {screenshots.map((screen) => (
@@ -1828,7 +1836,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
                 <figure>
                   <button
                     type="button"
-                    onClick={() => setActiveMedia(screen)}
+                    onClick={() => openMediaPreview(screen)}
                     className="group/media block w-full cursor-zoom-in text-left"
                     aria-label={`Open ${screen.label}`}
                   >
