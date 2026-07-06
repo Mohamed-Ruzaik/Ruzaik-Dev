@@ -1682,6 +1682,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
   const accentClass = accentPalette[project.category] || accentPalette["Developer Tools"];
   const features = project.features || [project.highlight, project.impact];
   const screenshots = project.screenshots || ["Main view", "Workflow", "Detail state"];
+  const mediaSectionLabel = getProjectSlug(project) === "mediconnect" ? "Demo video" : "Screenshots";
   const learned = project.learned || [
     "Keep the first version focused enough to finish.",
     "Design the workflow before adding extra screens.",
@@ -1813,7 +1814,7 @@ function ProjectDetailPage({ slug, onBack }: { slug: string; onBack: () => void 
       </section>
 
       <section ref={screenshotsSectionRef} className={`scroll-mt-24 mt-6 rounded-[1.5rem] p-6 ${glass}`}>
-        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Screenshots</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">{mediaSectionLabel}</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {screenshots.map((screen) => (
             <div
