@@ -2062,15 +2062,28 @@ function AboutPage() {
       <div className={`wide-content mx-auto rounded-[2rem] p-8 md:p-12 ${glassStrong}`}>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">About</p>
-            <h2 style={{ fontFamily: headingFont }} className="mt-4 text-3xl font-black text-white md:text-5xl">
-              Mohamed Ruzaik
-            </h2>
-            <div className="mt-5 space-y-4 text-base leading-8 text-zinc-400">
+            <p className="section-eyebrow mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">About</p>
+            <div className="mb-7 flex items-center gap-4">
+              <img
+                src="/cv-and-profilepic/profile.png"
+                alt="Mohamed Ruzaik profile"
+                className="h-24 w-24 rounded-[1.5rem] border border-cyan-300/20 object-cover object-top shadow-[0_18px_45px_rgba(0,0,0,0.28)] sm:h-28 sm:w-28"
+              />
+              <p className="text-2xl font-black text-white sm:text-3xl">Mohamed Ruzaik</p>
+            </div>
+            <div className="space-y-4 text-base leading-8 text-zinc-400">
               <p>I enjoy turning rough ideas into working software.</p>
               <p>My current focus is developer tools, AI-assisted applications, desktop software, and systems that solve practical problems.</p>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href="/cv-and-profilepic/cv.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className={`${contactButtonBase} border border-white/10 bg-white !text-black hover:bg-zinc-200 [&_svg]:!text-black`}
+              >
+                <Icon name="external" className="h-4 w-4" /> View CV
+              </a>
               <a
                 href={githubUrl}
                 target="_blank"
