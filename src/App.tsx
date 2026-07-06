@@ -520,11 +520,6 @@ const projects: readonly Project[] = [
         src: "/project-screenshots/mediconnect/mediconnect-demo.mp4",
         type: "video",
       },
-      "Patient dashboard",
-      "Doctor dashboard",
-      "Hospital admin dashboard",
-      "Pharmacy dashboard",
-      "Analytics dashboard",
     ],
     teamContribution:
       "This was a collaborative applied project. My main contribution was turning the project idea into clear user-facing workflows and building the frontend direction around multiple healthcare roles.",
