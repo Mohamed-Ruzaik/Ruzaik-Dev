@@ -181,6 +181,74 @@ const projects: readonly Project[] = [
     ],
   },
   {
+    title: "Velocity",
+    slug: "velocity",
+    type: "Desktop Browser",
+    status: "Personal Testing Build",
+    impact:
+      "A desktop browser built in controlled phases with Electron, React, TypeScript, shared contracts, and Rust native services.",
+    description:
+      "A personal-testing desktop browser with tabs, history, bookmarks, downloads, settings, private browsing, password autofill, basic adblock, and an AI sidebar boundary.",
+    stack: [
+      "Electron",
+      "React",
+      "TypeScript",
+      "Rust",
+      "Vite",
+      "IPC",
+      "Local JSON storage",
+      "AI provider boundary",
+    ],
+    icon: "window",
+    category: "Browser Concept",
+    scale: "Desktop Browser Foundation",
+    highlight: "Electron browser shell with real navigation, local storage, and AI workflow boundaries",
+    whatItIs:
+      "Velocity is a desktop browser built around a controlled Electron shell, a React and TypeScript renderer, shared TypeScript contracts, and Rust native services. It is ready for personal daily testing rather than general release, with practical browser workflows implemented and known limits documented.",
+    myRole:
+      "I built the desktop browser direction, Electron/React shell, shared IPC contracts, local persistence model, Rust native-service boundary, browser interaction flows, and AI provider integration boundary.",
+    features: [
+      "Electron desktop browser shell with React and TypeScript browser chrome.",
+      "Normal and private tabs with separate Electron sessions.",
+      "Pinned normal tabs and normal-tab session restore.",
+      "Omnibar URL/search handling with history and bookmark suggestions.",
+      "Back, forward, reload, new tab, private tab, close tab, and address focus shortcuts.",
+      "Searchable history, bookmark folders, downloads, and settings persisted in local JSON storage.",
+      "Crash-safer metadata writes using queued atomic temp-file replacement.",
+      "Basic adblock request filtering.",
+      "Local password save and autofill for simple forms, encrypted through the Rust native helper.",
+      "AI sidebar chat, summarize, and translate workflows through a provider-agnostic API boundary.",
+    ],
+    screenshots: [
+      {
+        label: "Left side panel hidden",
+        src: "/project-screenshots/velocity/leftside-panel-full-hide.png",
+      },
+      {
+        label: "Custom home page",
+        src: "/project-screenshots/velocity/customhomepage.png",
+      },
+      {
+        label: "Settings page",
+        src: "/project-screenshots/velocity/settings-page.png",
+      },
+      {
+        label: "Bookmark page",
+        src: "/project-screenshots/velocity/bookmarkpage.png",
+      },
+      {
+        label: "History page",
+        src: "/project-screenshots/velocity/historypage.png",
+      },
+    ],
+    learned: [
+      "Desktop browser work needs clear boundaries between the Electron main process, preload bridge, renderer UI, and native services.",
+      "Private browsing and session restore require explicit rules so user expectations stay clear.",
+      "Local-first persistence is useful for personal testing, but release readiness also needs installers, updates, sync, profiles, and deeper security review.",
+      "AI features should expose provider configuration honestly instead of pretending a provider is connected.",
+    ],
+  },
+  {
     title: "VoltCode",
     slug: "voltcode-mini",
     type: "Small IDE Shell",
@@ -260,7 +328,7 @@ const projects: readonly Project[] = [
       "A browser-safe web host is useful for demos because it avoids real filesystem or process access.",
       "Keeping removed scope documented makes the project easier to maintain and explain.",
     ],
-    githubUrl: "https://github.com/Mohamed-Ruzaik/VoltCode-Mini",
+    githubUrl: "https://github.com/Mohamed-Ruzaik/VoltCode",
   },
   {
     title: "CourseGrid LMS",
@@ -655,6 +723,7 @@ const projects: readonly Project[] = [
 
 const featuredProjectSlugs = [
   "custom-newtonian-reflector-telescope",
+  "velocity",
   "voltcode-mini",
   "coursegrid-lms",
   "diagramify-mini",
@@ -1195,7 +1264,7 @@ function runSelfTests() {
   console.assert(filterProjects(projects, "volt", "Developer Tools").some((p) => p.title === "Volt IDE"), "Self-test failed: Developer Tools filter should include Volt IDE.");
   console.assert(filterProjects(projects, "realmwalker", "Games").length === 1, "Self-test failed: Games group should include Realmwalker.");
   console.assert(getProjectBySlug("volt-ide")?.title === "Volt IDE", "Self-test failed: Volt detail slug should resolve.");
-  console.assert(getFeaturedProjects().length === 7, "Self-test failed: Projects page should show documented featured projects.");
+  console.assert(getFeaturedProjects().length === 8, "Self-test failed: Projects page should show documented featured projects.");
   console.assert(getEducationByLevel(education, "Degree").length === 1, "Self-test failed: Degree education should have one item.");
   console.assert(getEducationByLevel(education, "School").length === 2, "Self-test failed: School education should have two items.");
   console.assert(quickStats.length === 3, "Self-test failed: Home quick stats should have three items.");
