@@ -181,8 +181,8 @@ const projects: readonly Project[] = [
     ],
   },
   {
-    title: "Velocity",
-    slug: "velocity",
+    title: "Orbit",
+    slug: "orbit",
     type: "Desktop Browser",
     status: "Personal Testing Build",
     impact:
@@ -204,7 +204,7 @@ const projects: readonly Project[] = [
     scale: "Desktop Browser Foundation",
     highlight: "Electron browser shell with real navigation, local storage, and AI workflow boundaries",
     whatItIs:
-      "Velocity is a desktop browser built around a controlled Electron shell, a React and TypeScript renderer, shared TypeScript contracts, and Rust native services. It is ready for personal daily testing rather than general release, with practical browser workflows implemented and known limits documented.",
+      "Orbit is a desktop browser built around a controlled Electron shell, a React and TypeScript renderer, shared TypeScript contracts, and Rust native services. It is ready for personal daily testing rather than general release, with practical browser workflows implemented and known limits documented.",
     myRole:
       "I built the desktop browser direction, Electron/React shell, shared IPC contracts, local persistence model, Rust native-service boundary, browser interaction flows, and AI provider integration boundary.",
     features: [
@@ -222,23 +222,23 @@ const projects: readonly Project[] = [
     screenshots: [
       {
         label: "Left side panel hidden",
-        src: "/project-screenshots/velocity/leftside-panel-full-hide.png",
+        src: "/project-screenshots/orbit/leftside-panel-full-hide.png",
       },
       {
         label: "Custom home page",
-        src: "/project-screenshots/velocity/customhomepage.png",
+        src: "/project-screenshots/orbit/customhomepage.png",
       },
       {
         label: "Settings page",
-        src: "/project-screenshots/velocity/settings-page.png",
+        src: "/project-screenshots/orbit/settings-page.png",
       },
       {
         label: "Bookmark page",
-        src: "/project-screenshots/velocity/bookmarkpage.png",
+        src: "/project-screenshots/orbit/bookmarkpage.png",
       },
       {
         label: "History page",
-        src: "/project-screenshots/velocity/historypage.png",
+        src: "/project-screenshots/orbit/historypage.png",
       },
     ],
     learned: [
@@ -723,7 +723,7 @@ const projects: readonly Project[] = [
 
 const featuredProjectSlugs = [
   "custom-newtonian-reflector-telescope",
-  "velocity",
+  "orbit",
   "voltcode-mini",
   "coursegrid-lms",
   "diagramify-mini",
